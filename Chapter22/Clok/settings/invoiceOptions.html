@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Invoice Options</title>
+    <style>
+        #invoiceOptionsForm :invalid {
+            border: 2px solid red;
+            background-color: #FFCCCC;
+        }
+    </style>
+    <script src="invoiceOptions.js"></script>
+</head>
+<body>
+    <div id="settingsDiv" data-win-control="WinJS.UI.SettingsFlyout"
+        aria-label="Invoice Options"
+        data-win-options="{settingsCommandId:'invoiceOptions',width:'narrow'}">
+
+        <div class="win-ui-dark win-header" style="background-color: #000046;">
+            <button type="button" class="win-backbutton"
+                onclick="WinJS.UI.SettingsFlyout.show()">
+            </button>
+            <div class="win-label clok-logo">Invoice Options</div>
+
+            <!--            <img src="/images/smalllogo.png" style="position: absolute; right: 40px;"/>-->
+        </div>
+        <div class="win-content">
+
+            <div class="win-settings-section">
+                <form id="invoiceOptionsForm" onsubmit="return false;">
+                    <h3>Company Name</h3>
+                    <p>
+                        This will be displayed on any invoices.
+                        <br />
+                        <input type="text" id="companyName" maxlength="50" required />
+                    </p>
+
+                    <h3>Hourly Rate</h3>
+                    <p>
+                        Must be a number.
+                        <br />
+                        <input type="number" id="defaultRate" required />
+                    </p>
+
+                    <h3>Payment Options</h3>
+                    <p>
+                        Describe how the client should submit payment.  Include your address.  
+                        <br />
+                        <textarea id="paymentOptions" rows="12"></textarea>
+                        <br />
+                        <em>Simple HTML is allowed.  Line are breaks converted to &lt;br /&gt; 
+                            unless text already contains &lt;br&gt; tags.</em>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

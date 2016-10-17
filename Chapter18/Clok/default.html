@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Clok</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <!-- Clok references -->
+    <link href="/css/default.css" rel="stylesheet" />
+    <link href="/css/themeroller.css" rel="stylesheet" />
+
+    <!-- Clok generic scripts -->
+    <script src="/js/extensions.js"></script>
+    <script src="/js/utilities.js"></script>
+    <script src="/js/navigator.js"></script>
+
+    <!-- Clok data and extended splash screen -->
+    <script src="/data/project.js"></script>
+    <script src="/data/timeEntry.js"></script>
+    <script src="/data/storage.js"></script>
+    <script src="/data/bingMapsWrapper.js"></script>
+    <script src="/js/extendedSplash.js"></script>
+
+    <!-- Clok controls -->
+    <script src="/controls/js/timerControl.js"></script>
+    <script src="/controls/js/clockControl.js"></script>
+
+    <script src="/js/default.js"></script>
+</head>
+<body>
+    <div id="extendedSplash" class="hidden">
+        <img id="splashImage" src="/images/splashscreen.png" />
+        <progress id="splashProgress" style="color: white;"></progress>
+    </div>
+
+    <div id="snappedNotSupported" class="hidden">
+        <img id="notSupportedImage" src="/images/logo.png" />
+        <div>This screen is not available while Clok is snapped.</div>
+    </div>
+
+    <div id="currentTime" data-win-control="Clok.UI.Clock"></div>
+    <div id="contenthost"
+        data-win-control="Application.PageControlNavigator"
+        data-win-options="{home: '/pages/home/home.html'}">
+    </div>
+</body>
+</html>

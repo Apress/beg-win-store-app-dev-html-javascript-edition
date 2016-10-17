@@ -1,0 +1,115 @@
+﻿.detail section[role=main] {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+#projectDetailForm {
+    display: -ms-grid;
+    -ms-grid-columns: 2fr 20px 1fr 20px 1fr;
+    max-width: 900px;
+}
+
+    #projectDetailForm .formField {
+        padding-bottom: 10px;
+    }
+
+        #projectDetailForm .formField.required input,
+        #projectDetailForm .formField.required textarea,
+        #projectDetailForm .formField.required select {
+            border: solid green;
+            background-color: lightgreen;
+        }
+
+        #projectDetailForm .formField input:invalid,
+        #projectDetailForm .formField textarea:invalid,
+        #projectDetailForm .formField select:invalid {
+            border: 5px solid red;
+            background-color: #EE9090;
+        }
+
+
+#projectName,
+#clientName,
+#contactName,
+#contactEmail {
+    width: 430px;
+}
+
+#projectDescription {
+    height: 60px;
+    width: calc(90vw - 120px);
+}
+
+#projectNumber,
+#phone {
+    width: 200px;
+}
+
+
+#address1,
+#address2 {
+    width: 600px;
+}
+
+#city {
+    width: 265px;
+}
+
+#region {
+    width: 175px;
+}
+
+#postalCode {
+    width: 140px;
+}
+
+
+
+@media screen and (-ms-view-state: snapped) {
+    .detail section[role=main] {
+        margin-left: 20px;
+        margin-right: 20px;
+        overflow: scroll;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+
+    #projectDetailForm {
+        display: block;
+        max-width: inherit;
+        padding-bottom: 100px;
+    }
+
+    #projectName,
+    #startDate,
+    #dueDate,
+    #clientName,
+    #contactName,
+    #contactEmail,
+    #projectDescription,
+    #projectNumber,
+    #phone,
+    #address1,
+    #address2,
+    #city,
+    #region,
+    #postalCode {
+        width: 250px;
+    }
+
+    #projectDetailAppBar #goToDirectionsCommand,
+    #projectDetailAppBar #goToTimeEntriesCommand {
+        display: none;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .detail section[role=main] {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+
+    #projectDetailForm {
+        display: block;
+        max-width: inherit;
+    }
+}

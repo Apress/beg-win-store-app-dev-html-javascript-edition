@@ -1,0 +1,55 @@
+﻿.library section[role=main] {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+.hidden {
+    display: none;
+}
+
+#libraryListView {
+    height: calc(100% - 88px);
+}
+
+    #libraryListView .win-container {
+        background-color: #46468C;
+    }
+
+    #libraryListView .libraryItem {
+        display: -ms-grid;
+        -ms-grid-columns: 80px 350px;
+        height: 80px;
+    }
+
+    #libraryListView .libraryItem-icon {
+        -ms-grid-column: 1;
+        margin: 8px;
+        width: 64px;
+        height: 64px;
+        text-align: center;
+    }
+
+    #libraryListView .libraryItem-details {
+        -ms-grid-column: 2;
+        margin: 5px;
+    }
+
+    #libraryListView .libraryItem-filename {
+        font-size: 1.25em;
+    }
+
+
+
+@media screen and (-ms-view-state: snapped) {
+    .library section[role=main] {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .library section[role=main] {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}

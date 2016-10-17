@@ -1,0 +1,105 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Options</title>
+    <script src="options.js"></script>
+</head>
+<body>
+    <div id="settingsDiv" data-win-control="WinJS.UI.SettingsFlyout"
+        aria-label="Options"
+        data-win-options="{settingsCommandId:'options',width:'narrow'}">
+
+        <div class="win-ui-dark win-header" style="background-color: #000046;">
+            <button type="button" class="win-backbutton"
+                onclick="WinJS.UI.SettingsFlyout.show()">
+            </button>
+            <div class="win-label clok-logo">Options</div>
+            <img src="/images/options-icon.png" style="position: absolute; right: 40px;" />
+        </div>
+        <div class="win-content">
+
+            <div class="win-settings-section">
+                <h3>Current Time</h3>
+                <div id="clockModeToggle" 
+                    data-win-control="WinJS.UI.ToggleSwitch" 
+                    data-win-options="{
+                        title:'12-hour format or 24-hour format',
+                        labelOn: '15:30',
+                        labelOff: '3:30 PM'
+                    }"></div>
+                <div id="clockSecondsToggle" 
+                    data-win-control="WinJS.UI.ToggleSwitch" 
+                    data-win-options="{
+                        title:'Show or hide seconds',
+                        labelOn: 'Show',
+                        labelOff: 'Hide'
+                    }"></div>
+            </div>
+            <div class="win-settings-section">
+                <h3>Dialogs and Notifications</h3>
+                <div id="timeSheetClipboardMessageToggle" 
+                    data-win-control="WinJS.UI.ToggleSwitch" 
+                    data-win-options="{
+                        title:'Show clipboard message when copying time entries for Excel',
+                        labelOn: 'Show',
+                        labelOff: 'Do not show'
+                    }"></div>
+                <div id="showAlreadyRunningToastOnLaunchToggle" 
+                    data-win-control="WinJS.UI.ToggleSwitch" 
+                    data-win-options="{
+                        title:'Show a toast notification if the timer is already running when Clok is launched',
+                        labelOn: 'Show',
+                        labelOff: 'Do not show'
+                    }"></div>
+            </div>
+            <div class="win-settings-section">
+                <h3>Bing Maps API</h3>
+
+                <label>Connection Speed (timeout)</label>
+                <label><input type="radio" name="bingMapsTimeout" id="bingMapsTimeout_2000" value="2000" />Fast connection (2 sec)</label>
+                <label><input type="radio" name="bingMapsTimeout" id="bingMapsTimeout_5000" value="5000" />Normal connection (5 sec)</label>
+                <label><input type="radio" name="bingMapsTimeout" id="bingMapsTimeout_10000" value="10000" />Slow connection (10 sec)</label>
+
+                <div id="bingMapsDistanceUnitToggle" 
+                    data-win-control="WinJS.UI.ToggleSwitch" 
+                    data-win-options="{
+                        title:'Metric or Imperial System',
+                        labelOn: '6.4 km',
+                        labelOff: '4 mi'
+                    }"></div>
+            </div>
+            <div class="win-settings-section">
+                <h3>Debugging</h3>
+                <div id="indexedDbHelperToggle" 
+                    data-win-control="WinJS.UI.ToggleSwitch" 
+                    data-win-options="{
+                        title:'Enable IndexedDB Helper',
+                        labelOn: 'Enabled',
+                        labelOff: 'Disabled'
+                    }"></div>
+            </div>
+            <div class="win-settings-section">
+                <h3>Backups</h3>
+                <p>Backup Projects and Time Entries</p>
+                <p>
+                    <button id="saveBackupButton">Save Backup</button>
+                    <span id="backupConfirmation" 
+                        class="win-type-xx-small" 
+                        style="display: none;">Backup saved</span>
+                </p>
+<!--
+                <p>
+                    <select id="backupFile">
+                        <option value="">Choose a backup file to restore</option>
+                        <option value="">20130630-225059.json</option>
+                    </select>
+                    <button id="restoreBackupButton">Restore Backup</button>
+                </p>
+-->
+                <p class="win-type-xx-small">Backup location: <span id="backupPath"></span></p>
+            </div>
+
+        </div>
+    </div>
+</body>
+</html>

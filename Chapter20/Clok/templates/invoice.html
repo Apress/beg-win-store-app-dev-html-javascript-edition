@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style type="text/css">
+        body {
+            font-family: sans-serif;
+        }
+
+        h4.sectionHead {
+            margin-bottom: 0px;
+        }
+
+        .invoiceLines {
+            border-collapse: collapse;
+            border-spacing: 0px;
+        }
+
+            .invoiceLines th,
+            .invoiceLines td {
+                border: 1px solid black;
+                margin: 0px;
+                padding: 2px;
+            }
+
+            .invoiceLines .totals {
+                font-weight: bold;
+            }
+
+            .invoiceLines #totalDesc {
+                background: black;
+            }
+    </style>
+
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <script src="/data/timeEntry.js"></script>
+    <script src="/data/project.js"></script>
+
+    <script>
+        var appData = Windows.Storage.ApplicationData.current;
+        var roamingSettings = appData.roamingSettings;
+
+        var formatDate = function (dt) {
+            var formatting = Windows.Globalization.DateTimeFormatting;
+            var formatter = new formatting.DateTimeFormatter("shortdate");
+            return formatter.format(dt);
+        }
+
+        window.onmessage = function (message) {
+            if (message.origin !== "ms-appx://" + document.location.host) {
+                return;
+            }
+
+            WinJS.UI.processAll().then(function () {
+                var compName = roamingSettings.values["invoiceCompanyName"];
+                var rate = Number(roamingSettings.values["invoiceDefaultRate"]);
+                var pmtOptions = roamingSettings.values["invoicePaymentOptions"];
+                if (pmtOptions.indexOf("<br") < 0) {
+                    pmtOptions = pmtOptions.replace(/\r\n/g, "<br />").replace(/\n/g, "<br />");
+                }
+
+                var invoiceLines = document.getElementById("invoiceLines");
+                var template = document.getElementById("invoiceLineTemplate").winControl;
+
+                var sumHour = 0;
+                var sumCost = 0;
+
+                invoiceLines.innerText = "";
+                message.data.lines.forEach(function (item) {
+                    var hrs = item.elapsedSeconds / 3600;
+
+                    item.dateWorked = formatDate(item.dateWorked);
+                    item.hours = hrs.toFixed(2);
+                    item.lineCost = (rate * hrs).toFixed(2);
+
+                    sumHour += hrs;
+                    sumCost += rate * hrs;
+
+                    template.render(item, invoiceLines);
+                });
+
+                invoiceDate.innerText = formatDate(new Date());
+                projectName.innerText = message.data.project.name;
+                projectNumber.innerText = message.data.project.projectNumber;
+
+                companyName.innerText = compName;
+                clientName.innerHTML = message.data.project.clientName;
+                contactName.innerHTML = message.data.project.contactName;
+                address1.innerHTML = message.data.project.address1;
+                address2.innerHTML = message.data.project.address2;
+                city.innerHTML = message.data.project.city;
+                region.innerHTML = message.data.project.region;
+                postalCode.innerHTML = message.data.project.postalCode;
+
+                totalHours.innerText = sumHour.toFixed(2);
+                totalCost.innerText = sumCost.toFixed(2);
+
+                paymentOptions.innerHTML = pmtOptions;
+            });
+        }
+
+    </script>
+</head>
+<body>
+    <h1>Invoice</h1>
+    <h2 id="companyName"></h2>
+
+    <h4 class="sectionHead">To:</h4>
+    <div>
+        <div id="clientName"></div>
+        <div id="contactName"></div>
+        <div id="address1"></div>
+        <div id="address2"></div>
+        <div>
+            <span id="city"></span>, 
+            <span id="region"></span>
+            <span id="postalCode"></span>
+        </div>
+    </div>
+
+    <h4 class="sectionHead">For:</h4>
+    <div>
+        <div>
+            Invoice Date: <span id="invoiceDate"></span>
+            <br />
+            Project:  <span id="projectName"></span>
+            <br />
+            Ref #:  <span id="projectNumber"></span>
+            <br />
+        </div>
+    </div>
+
+    <h4 class="sectionHead">Invoice Details</h4>
+    <table style="display: none;">
+        <tbody data-win-control="WinJS.Binding.Template" id="invoiceLineTemplate">
+            <tr>
+                <td data-win-bind="textContent: dateWorked"></td>
+                <td data-win-bind="textContent: notes"></td>
+                <td data-win-bind="textContent: hours"></td>
+                <td data-win-bind="textContent: lineCost"></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table class="invoiceLines">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Note</th>
+                <th>Hours</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="invoiceLines"></tbody>
+        <tfoot>
+            <tr class="totals">
+                <td id="totalDesc" colspan="2"></td>
+                <td id="totalHours"></td>
+                <td id="totalCost"></td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <p id="paymentOptions"></p>
+</body>
+</html>

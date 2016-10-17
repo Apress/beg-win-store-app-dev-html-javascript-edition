@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>listViewGrouping</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-light.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="listViewGrouping.css" rel="stylesheet" />
+    <script src="listViewGrouping.js"></script>
+    <script src="/js/data.js"></script>
+</head>
+<body>
+    <div class="listViewGrouping fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">List View - Grouping and Semantic Zoom</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+            <div id="listViewHeaderTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+                <div class="listViewHeader">
+                    <h1 data-win-bind="innerText: name"></h1>
+                </div>
+            </div>
+
+            <div id="listViewTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+                <div class="listViewItem">
+                    <img src="#" class="listViewItemImage" data-win-bind="src: pic_sm" />
+                    <div class="listViewItemText">
+                        <h4 data-win-bind="innerText: name"></h4>
+                        <h6 data-win-bind="innerText: classification"></h6>
+                    </div>
+                </div>
+            </div>
+
+            <div id="semanticZoomTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+                <div class="semanticZoomItem">
+                    <h2 class="semanticZoomItemText" data-win-bind="innerText: name"></h2>
+                </div>
+            </div>
+
+
+            <div id="semanticZoom" data-win-control="WinJS.UI.SemanticZoom">
+
+                <!-- zoomed in -->
+                <div id="listView"
+                    class="win-selectionstylefilled"
+                    data-win-control="WinJS.UI.ListView"
+                    data-win-options="{ 
+                        itemDataSource: groupedAnimals.dataSource, 
+                        itemTemplate: select('#listViewTemplate'),
+                        groupDataSource: groupedAnimals.groups.dataSource,
+                        groupHeaderTemplate: select('#listViewHeaderTemplate'), 
+                        selectionMode: 'none', 
+                        tapBehavior: 'none', 
+                        swipeBehavior: 'none'
+                }">
+                </div>
+
+                <!-- zoomed out -->
+                <div id="zoomedOutListView"
+                    data-win-control="WinJS.UI.ListView"
+                    data-win-options="{ 
+                        itemDataSource: groupedAnimals.groups.dataSource, 
+                        itemTemplate: select('#semanticZoomTemplate'),
+                        selectionMode: 'none', 
+                        tapBehavior: 'invoke', 
+                        swipeBehavior: 'none' 
+                    }">
+                </div>
+
+            </div>
+
+
+
+        </section>
+    </div>
+</body>
+</html>

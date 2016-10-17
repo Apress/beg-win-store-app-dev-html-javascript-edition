@@ -1,0 +1,31 @@
+﻿.listViewItem {
+    width: 250px;
+    height: 75px;
+    padding: 5px;
+    overflow: hidden;
+    display: -ms-grid;
+}
+
+    .listViewItem img.listViewItemImage {
+        width: 60px;
+        height: 60px;
+        margin: 5px;
+        -ms-grid-column: 1;
+    }
+
+    .listViewItem .listViewItemText {
+        margin: 5px;
+        -ms-grid-column: 2;
+    }
+
+#listViewGridLayout {
+    height: 400px;
+    width: calc(100% - 50px);
+    border: 1px solid #464646;
+}
+
+#listViewListLayout {
+    height: 400px;
+    width: 300px;
+    border: 1px solid #464646;
+}

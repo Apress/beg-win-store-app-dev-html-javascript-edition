@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>list</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="list.css" rel="stylesheet" />
+    <script src="list.js"></script>
+</head>
+<body>
+    <div id="projectListAppBar" 
+            class="win-ui-dark" 
+            data-win-control="WinJS.UI.AppBar">
+
+        <button
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{
+                id:'addProjectCommand',
+                label:'Add',
+                icon:'add',
+                section:'global',
+                tooltip:'Add'}">
+        </button>
+    </div>
+
+    <div class="list fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">Projects</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+            <div id="listViewHeaderTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+                <div class="listViewHeader">
+                    <h1 data-win-bind="innerText: name"></h1>
+                </div>
+            </div>
+
+            <div id="listViewTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+                <div data-class="listViewItem" data-win-bind="className: status">
+                    <h4 data-win-bind="innerText: name"></h4>
+                    <h6>
+                        <span data-win-bind="innerText: projectNumber"></span>
+                         (<span data-win-bind="innerText: status"></span>)
+                    </h6>
+                    <h6 data-win-bind="innerText: clientName"></h6>
+                </div>
+            </div>
+
+            <div id="semanticZoomTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+                <div class="semanticZoomItem">
+                    <h2 class="semanticZoomItemText" data-win-bind="innerText: name"></h2>
+                </div>
+            </div>
+
+
+            <div id="filters">
+                <button id="allProjectsButton" class="selected">All projects</button>
+                <button id="activeProjectsButton">Only active projects</button>
+                <button id="inactiveProjectsButton">Only inactive projects</button>
+            </div>
+
+            <div id="semanticZoom" data-win-control="WinJS.UI.SemanticZoom">
+
+                <!-- zoomed in -->
+                <div id="listView"
+                    class="win-selectionstylefilled"
+                    data-win-control="WinJS.UI.ListView"
+                    data-win-options="{ 
+                        itemTemplate: select('#listViewTemplate'),
+                        groupHeaderTemplate: select('#listViewHeaderTemplate'), 
+                        selectionMode: 'none', 
+                        tapBehavior: 'invoke', 
+                        swipeBehavior: 'none'
+                }">
+                </div>
+
+                <!-- zoomed out -->
+                <div id="zoomedOutListView"
+                    data-win-control="WinJS.UI.ListView"
+                    data-win-options="{ 
+                        itemTemplate: select('#semanticZoomTemplate'),
+                        selectionMode: 'none', 
+                        tapBehavior: 'invoke', 
+                        swipeBehavior: 'none' 
+                    }">
+                </div>
+
+            </div>
+
+        </section>
+    </div>
+</body>
+</html>

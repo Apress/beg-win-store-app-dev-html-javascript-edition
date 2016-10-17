@@ -1,0 +1,169 @@
+﻿.homepage section[role=main] {
+    margin-left: 120px;
+    width: calc(100% - 120px);
+    display: -ms-flexbox;
+    -ms-flex-align: start;
+    -ms-flex-pack: start;
+    -ms-flex-direction: row;
+    -ms-flex-wrap: nowrap;
+}
+
+.homepage #mainMenu {
+    -ms-flex: 0 auto;
+    width: 424px;
+    display: -ms-flexbox;
+    -ms-flex-align: center;
+    -ms-flex-direction: row;
+    -ms-flex-wrap: wrap;
+}
+
+
+/* all menu buttons */
+.homepage .mainMenuItem {
+    cursor: pointer;
+    border: 2px solid transparent;
+    margin: 4px;
+    background: rgba(0,0,50,0.65);
+    display: -ms-grid;
+    -ms-grid-columns: 1fr;
+}
+
+    .homepage .mainMenuItem:hover {
+        cursor: pointer;
+        border: 2px solid #ffffff;
+    }
+
+    .homepage .mainMenuItem .mainMenuItem-image {
+        -ms-grid-row-span: 2;
+    }
+
+    .homepage .mainMenuItem .mainMenuItem-overlay {
+        -ms-grid-row: 2;
+        padding: 6px 15px;
+        background: rgba(0,0,35,0.65);
+    }
+
+    /* buttons that haven't been implemented yet */
+    .homepage .mainMenuItem.notImplemented:hover {
+        cursor: default;
+        border: 2px solid transparent;
+        background: rgba(50,50,50,0.65);
+        background-image: url('/images/Thumb-Down.png');
+        transition: background 500ms ease-in-out 0s;
+    }
+
+        .homepage .mainMenuItem.notImplemented:hover .mainMenuItem-image {
+            visibility: hidden;
+        }
+
+        .homepage .mainMenuItem.notImplemented:hover .mainMenuItem-overlay {
+            background: rgba(35,35,35,0.65);
+        }
+
+            .homepage .mainMenuItem.notImplemented:hover .mainMenuItem-overlay .mainMenuItem-title {
+                display: none;
+            }
+
+            .homepage .mainMenuItem.notImplemented:hover .mainMenuItem-overlay::after {
+                content: 'Coming Soon';
+            }
+
+/* just the big menu button */
+.homepage .primaryMenuItem {
+    height: 408px;
+    width: 408px;
+    -ms-grid-rows: 1fr 70px;
+}
+
+    .homepage .primaryMenuItem .mainMenuItem-image {
+        height: 382px;
+        width: 382px;
+        margin: 10px;
+    }
+
+    .homepage .primaryMenuItem .mainMenuItem-overlay .mainMenuItem-title {
+        font-size: 2.5em;
+    }
+
+/* the smaller menu buttons */
+.homepage .secondaryMenuItem {
+    height: 128px;
+    width: 128px;
+    -ms-grid-rows: 1fr 32px;
+}
+
+    .homepage .secondaryMenuItem .mainMenuItem-image {
+        height: 128px;
+        width: 128px;
+        padding: 0;
+    }
+
+    .homepage .secondaryMenuItem .mainMenuItem-overlay .mainMenuItem-title {
+        font-size: 1em;
+    }
+
+
+.homepage #timeEntry {
+    margin-left: 20px;
+    margin-right: 20px;
+    -ms-flex: 0 auto;
+}
+
+    .homepage #timeEntry label {
+        display: block;
+        font-size: 2em;
+    }
+
+.homepage #elapsedTime {
+    padding-bottom: 30px;
+}
+
+    .homepage #elapsedTime #elapsedTimeClock {
+        font-size: 8em;
+        animation: animateTimeIn 750ms ease-in-out 1s 2 normal;
+    }
+
+.homepage #editProjectButton {
+    border: 0px;
+    min-width: inherit;
+    font-size: 1.5em;
+}
+
+.homepage #project {
+    width: 400px;
+}
+
+.homepage #timeNotes {
+    width: 400px;
+    height: 75px;
+}
+
+.homepage section[role=main] #rightPane {
+    margin-left: 20px;
+    margin-right: 20px;
+    -ms-flex: 1 auto;
+}
+
+
+
+@media screen and (-ms-view-state: snapped) {
+    .homepage section[role=main] {
+        margin-left: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: portrait) {
+    .homepage section[role=main] {
+        margin-left: 100px;
+    }
+}
+
+@keyframes animateTimeIn {
+    from, to {
+        color: rgba(255, 255, 255, 1);
+    }
+
+    50% {
+        color: rgba(255, 255, 0, 0.5);
+    }
+}

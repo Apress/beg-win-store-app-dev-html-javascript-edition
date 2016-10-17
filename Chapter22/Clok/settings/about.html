@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>About Clok</title>
+</head>
+<body>
+    <div id="settingsDiv" data-win-control="WinJS.UI.SettingsFlyout"
+        aria-label="About Clok"
+        data-win-options="{settingsCommandId:'about',width:'narrow'}">
+
+        <div class="win-ui-dark win-header" style="background-color: #000046;">
+            <button type="button" class="win-backbutton"
+                onclick="WinJS.UI.SettingsFlyout.show()">
+            </button>
+            <div class="win-label clok-logo">About Clok</div>
+
+            <!--            <img src="/images/smalllogo.png" style="position: absolute; right: 40px;"/>-->
+        </div>
+        <div class="win-content">
+            <div class="win-settings-section">
+                <h3>About Clok</h3>
+                <p>
+                    Clok is a sample application being developed in conjunction with 
+                    <em>Beginning Windows Store Application Development: HTML and JavaScript Edition</em>, 
+                    an upcoming title about building Windows Store applications with HTML, 
+                    JavaScript and CSS using the WinJS and WinRT libraries.  It is written by 
+                    <a href="http://www.tapmymind.com" style="padding-bottom: 0px;">Scott Isaacs</a> and 
+                    <a href="http://apress.com/" style="padding-bottom: 0px;">Apress Media LLC</a> will publish the 
+                    title in Summer 2013.
+                </p>
+                <h3>For more information</h3>
+                <ul>
+                    <li><a href="http://clok.us/" style="padding-bottom: 0px;">Clok Website</a></li>
+                    <li><a href="http://clok.us/privacy" style="padding-bottom: 0px;">Privacy policy</a></li>
+                </ul>
+                <h3>Third Party Libraries</h3>
+                <p>
+                    Clok makes use of the following third party, open source libraries.  License information 
+                    is included in the Clok source code.
+                </p>
+                <ul>
+                    <li><a href="http://www.jquery.com/" style="padding-bottom: 0px;">jQuery</a></li>
+                    <li><a href="http://www.humblesoftware.com/flotr2/" style="padding-bottom: 0px;">Flotr2 Graphing Library</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

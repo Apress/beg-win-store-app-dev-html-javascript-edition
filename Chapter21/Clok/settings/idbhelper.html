@@ -1,0 +1,196 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>IndexedDB Helper</title>
+
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <script src="/js/extensions.js"></script>
+    <script src="/js/utilities.js"></script>
+
+    <script src="/data/project.js"></script>
+    <script src="/data/timeEntry.js"></script>
+    <script src="/data/storage.js"></script>
+
+    <script>
+
+        function deleteAllData() {
+            var msg = new Windows.UI.Popups.MessageDialog("This cannot be undone.  Do you wish to continue?", "You're about to remove all data from Clok.");
+
+            msg.commands.append(new Windows.UI.Popups.UICommand("Yes, Delete It", function (command) {
+                var storage = Clok.Data.Storage;
+                storage.projects.forEach(function (p) {
+                    storage.projects.delete(p, true);
+                });
+                storage.timeEntries.forEach(function (te) {
+                    storage.timeEntries.delete(te);
+                });
+            }));
+
+            msg.commands.append(new Windows.UI.Popups.UICommand("No, Don't Delete It", function (command) { }));
+
+            msg.defaultCommandIndex = 0;
+            msg.cancelCommandIndex = 1;
+
+            msg.showAsync();
+        }
+
+        function addTestData() {
+
+            var projects = Clok.Data.Storage.projects;
+            var time = Clok.Data.Storage.timeEntries;
+
+            if (projects.length > 0 || time.length > 0) {
+                var msg = new Windows.UI.Popups.MessageDialog("You cannot add test data since Clok already contains data.", "Cannot add test data.");
+                msg.showAsync();
+                return;
+            }
+
+
+            var createProject = function (name, projectNumber, clientName, id, status) {
+                var newProject = new Clok.Data.Project();
+                newProject.id = id;
+                newProject.name = name;
+                newProject.projectNumber = projectNumber;
+                newProject.clientName = clientName;
+                newProject.status = status || newProject.status;
+
+                return newProject;
+            }
+
+            var id1 = "9e20fdb7-29d7-4290-bce9-ce30c8b68f56";
+            var id2 = "88782158-b0ce-41b6-bd22-ce520a8eb722";
+            var id3 = "813f3918-c73b-4171-b8b9-1f3d80fd8073";
+            var id4 = "d34927d1-069d-45e5-85b9-8109f461bba2";
+            var id5 = "350295bb-fd75-4aff-ab0c-04de02bb992f";
+            var id6 = "125b8092-b3db-4393-9525-a5301b81a154";
+            var id7 = "a142f8f5-566c-4c41-a80c-92ab69d0aa9e";
+            var id8 = "ab539dc9-8a36-495a-9a8e-b6c0a48f9340";
+            var id9 = "df1e7616-28b4-4dc0-81a8-521aed3de698";
+            var id10 = "b2245ba7-ab0f-4671-b328-802cdeae77f3";
+            var id11 = "4ca2ecfa-a01d-403e-9eb4-d7539a778ffc";
+            var id12 = "667a68f1-6ffc-40b2-bd78-3d20c59e3d63";
+            var id13 = "f7a17bcc-c9fa-4f25-af4a-99eeb3cedbe6";
+            var id14 = "658b5eac-df8c-4599-ae39-b76cb2ee54ec";
+            var id15 = "dcfb4704-f878-49ca-a6e4-8c13fb39a7ac";
+            var id16 = "360a1b2e-789d-4899-9b7c-f1cd55fc862d";
+            var id17 = "7dea781e-cd49-4e2c-8084-663616aa1cb7";
+            var id18 = "8a16947c-e245-4931-9069-63a63ed83f97";
+
+            var name1 = "Windows Store App";
+            var name2 = "Mobile Website";
+            var name3 = "Website Redesign";
+            var name4 = "Employee Portal";
+
+            var client1 = "Northwind Traders";
+            var client2 = "Contoso Ltd.";
+            var client3 = "AdventureWorks Cycles";
+            var client4 = "TailSpin Toys";
+            var client5 = "A. Datum Corporation";
+            var client6 = "Woodgrove Bank";
+            var client7 = "Fabrikam, Inc.";
+
+            projects.save(createProject(name1, "2012-0003", client1, id1, Clok.Data.ProjectStatuses.Inactive));
+            projects.save(createProject(name2, "2012-0008", client2, id2, Clok.Data.ProjectStatuses.Inactive));
+            projects.save(createProject(name3, "2012-0011", client1, id3, Clok.Data.ProjectStatuses.Inactive));
+
+            // one needs an address for map example
+            var project = createProject(name1, "2012-0017", client3, id4);
+            project.address1 = "1 Microsoft Way";
+            project.city = "Redmond";
+            project.region = "WA";
+            project.postalCode = "98052";
+            projects.save(project);
+
+            projects.save(createProject(name3, "2012-0018", client4, id5, Clok.Data.ProjectStatuses.Deleted));
+            projects.save(createProject(name1, "2012-0023", client5, id6, Clok.Data.ProjectStatuses.Deleted));
+            projects.save(createProject(name3, "2012-0027", client6, id7, Clok.Data.ProjectStatuses.Inactive));
+            projects.save(createProject(name3, "2012-0030", client7, id8, Clok.Data.ProjectStatuses.Inactive));
+            projects.save(createProject(name3, "2012-0033", client3, id9));
+            projects.save(createProject(name2, "2012-0039", client1, id10, Clok.Data.ProjectStatuses.Inactive));
+            projects.save(createProject(name4, "2012-0042", client3, id11, Clok.Data.ProjectStatuses.Inactive));
+            projects.save(createProject(name3, "2012-0050", client5, id12, Clok.Data.ProjectStatuses.Inactive));
+            projects.save(createProject(name1, "2012-0053", client4, id13, Clok.Data.ProjectStatuses.Inactive));
+            projects.save(createProject(name2, "2013-0012", client5, id14));
+            projects.save(createProject(name2, "2013-0013", client7, id15));
+            projects.save(createProject(name4, "2013-0016", client1, id16, Clok.Data.ProjectStatuses.Deleted));
+            projects.save(createProject(name4, "2013-0017", client6, id17));
+            projects.save(createProject(name3, "2013-0018", client2, id18));
+
+
+
+            var createTime = function (id, projectId, dateWorked, elapsedSeconds, notes) {
+                var newTimeEntry = new Clok.Data.TimeEntry();
+                newTimeEntry.id = id;
+                newTimeEntry.projectId = projectId;
+                newTimeEntry.dateWorked = dateWorked;
+                newTimeEntry.elapsedSeconds = elapsedSeconds;
+                newTimeEntry.notes = notes;
+
+                return newTimeEntry;
+            }
+
+            var id101 = "ddbffb23-adbd-4489-b0c6-13bc29fd7c63";
+            var id102 = "ee0b2b1b-cf96-42fd-bda6-3a4572fd5db8";
+            var id103 = "4f1acc0b-f902-44c9-9b2b-b6db1c157631";
+            var id104 = "ae849d34-8071-46e8-b1bd-ff4b3533f931";
+            var id105 = "3538794a-daf7-4bac-a2ab-a0a1c98d8541";
+            var id106 = "4c07948e-5e06-44e9-8c1d-848646cb96c6";
+            var id107 = "2bc706e7-9f7d-4b9b-93fe-411766db1a71";
+            var id108 = "4081982e-f7f5-4445-b114-09499418c65a";
+            var id109 = "bdae33d6-1fd0-4667-875e-873a13aae127";
+            var id110 = "d705b5b1-5362-485a-9dd7-ec04c3705d01";
+            var id111 = "5393ebdf-1a93-4006-ac6d-d179d976821c";
+            var id112 = "75b72643-7ffe-44f5-9be3-abdd709937d3";
+            var id113 = "7e64e879-5291-4e21-83c0-973e4d1cf785";
+            var id114 = "dd358d1c-59c9-4920-9c1e-b001d6611ec4";
+            var id115 = "238c24a6-39cc-4253-8c2b-71d550f97d79";
+
+            var date1 = (new Date()).addMonths(-1).addDays(1);
+            var date2 = (new Date()).addMonths(-1).addDays(4);
+            var date3 = (new Date()).addMonths(-1).addDays(8);
+            var date4 = (new Date()).addMonths(-1).addDays(18);
+            var date5 = (new Date()).addMonths(-1).addDays(29);
+
+            time.save(createTime(id101, id13, date1, 10800, "Lorem ipsum dolor sit."));
+            time.save(createTime(id102, id13, date2, 7200, "Amet, consectetur adipiscing."));
+            time.save(createTime(id103, id13, date3, 7200, "Praesent congue euismod diam."));
+            time.save(createTime(id104, id16, date2, 7200, "Curabitur euismod mollis."));
+            time.save(createTime(id105, id15, date1, 7200, "Donec sit amet porttitor."));
+            time.save(createTime(id106, id14, date3, 8100, "Praesent congue euismod diam."));
+            time.save(createTime(id107, id14, date2, 14400, "Curabitur euismod mollis."));
+            time.save(createTime(id108, id17, date4, 7200, "Donec sit amet porttitor."));
+            time.save(createTime(id109, id4, date3, 7200, "Praesent congue euismod diam."));
+            time.save(createTime(id110, id4, date2, 7200, "Curabitur euismod mollis."));
+            time.save(createTime(id111, id4, date1, 7200, "Donec sit amet porttitor."));
+            time.save(createTime(id112, id2, date4, 8100, "Praesent congue euismod diam."));
+            time.save(createTime(id113, id9, date2, 14400, "Curabitur euismod mollis."));
+            time.save(createTime(id114, id9, date1, 7200, "Donec sit amet porttitor."));
+            time.save(createTime(id115, id17, date5, 10800, "Donec semper risus nec."));
+        }
+
+    </script>
+</head>
+<body>
+    <div id="settingsDiv" data-win-control="WinJS.UI.SettingsFlyout"
+        aria-label="IndexedDB Helper"
+        data-win-options="{settingsCommandId:'idbhelper',width:'wide'}">
+
+        <div class="win-ui-dark win-header" style="background-color: #000046;">
+            <button type="button" class="win-backbutton"
+                onclick="WinJS.UI.SettingsFlyout.show()">
+            </button>
+            <div class="win-label clok-logo">IndexedDB Helper</div>
+        </div>
+        <div class="win-content">
+            <div class="win-settings-section">
+                <button onclick="deleteAllData();" style="background-color: red;">Delete All Data</button>
+                <button onclick="addTestData();">Add Test Data</button>
+                <iframe style="width: 550px; height: 600px"
+                    src="/settings/IDBExplorer/IDBExplorer.html?name=Clok"></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

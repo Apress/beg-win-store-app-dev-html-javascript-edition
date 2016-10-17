@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>htmlcontrols</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-light.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="htmlcontrols.css" rel="stylesheet" />
+    <script src="htmlcontrols.js"></script>
+</head>
+<body>
+    <form id="myForm">
+        <div class="htmlcontrols fragment">
+            <header aria-label="Header content" role="banner">
+                <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+                <h1 class="titlearea win-type-ellipsis">
+                    <span class="pagetitle">HTML Controls</span>
+                </h1>
+            </header>
+            <section aria-label="Main content" role="main">
+                <div id="col1">
+                    <div class="example">
+                        <h2>Label</h2>
+                        <div>
+                            <label id="myLabel" for="myTextbox">This is text in a label</label>
+                        </div>
+                    </div>
+
+                    <div class="example">
+                        <h2>Link</h2>
+                        <div>
+                            <a id="myLink" href="/pages/otherpage/otherpage.html">Link to another page</a>
+                            <br />
+                            <a id="myLink2" class="defaultClick" href="/pages/otherpage/otherpage.html">Link to another page (default click behavior)</a>
+                        </div>
+                    </div>
+
+                    <div class="example">
+                        <h2>Text input</h2>
+                        <div>
+                            <input type="text" id="myTextbox" 
+                                placeholder="Enter your name" 
+                                maxlength="15" 
+                                required 
+                                pattern="^[A-Za-z]*$"
+                                title="Only characters, A-Z or a-z" />
+                        </div>
+                    </div>
+
+                    <div class="example">
+                        <h2>Password input</h2>
+                        <div>
+                            <input type="password" id="myPassword" />
+                        </div>
+                    </div>
+
+                    <div class="example">
+                        <h2>Multiline text input</h2>
+                        <div>
+                            <textarea id="myTextarea" rows="5" cols="60"></textarea>
+                        </div>
+                    </div>
+
+                </div>
+                <div id="col2">
+
+                    <div class="example">
+                        <h2>Drop-down list</h2>
+                        <div>
+                            <select id="mySelect">
+                                <option value="option1">Option 1</option>
+                                <option value="option2">Option 2</option>
+                                <option value="option3">Option 3</option>
+                                <option selected="selected" value="option4">Option 4</option>
+                                <option value="option5">Option 5</option>
+                                <option value="option6">Option 6</option>
+                                <option value="option7">Option 7</option>
+                                <option value="option8">Option 8</option>
+                                <option value="option9">Option 9</option>
+                                <option value="option10">Option 10</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="example">
+                        <h2>Check box</h2>
+                        <div>
+                            <input type="checkbox" id="myCheckbox" />
+                            <label for="myCheckbox">Check the box</label>
+                        </div>
+                    </div>
+
+                    <div class="example">
+                        <h2>Radio buttons</h2>
+                        <div>
+                            <input type="radio" id="myRadio1" name="myRadioButtonGroup" value="radio1" />
+                            <label for="myRadio1">Option 1</label>
+                            <input type="radio" id="myRadio2" name="myRadioButtonGroup" value="radio2" checked />
+                            <label for="myRadio2">Option 2</label>
+                        </div>
+                    </div>
+
+                    <div class="example">
+                        <h2>Buttons</h2>
+                        <div>
+                            <button type="button" id="myButton">Button</button>
+                            <button type="reset" id="myReset">Reset</button>
+                            <button type="submit" id="mySubmit">Submit</button>
+                            <!--
+                            <button type="button" id="Button1">
+                                <img src="/images/60/Squirrel.png" /><br />
+                                Click the <em>squirrel</em>!
+                            </button>
+                            -->
+                        </div>
+                    </div>
+
+                    <div class="example">
+                        <h2>Progress indicator - determinate bar</h2>
+                        <div>
+                            <progress id="myProgressDeterminate" value="75" max="100" />
+                        </div>
+                    </div>
+
+                    <div class="example">
+                        <h2>Progress indicator - indeterminate bar</h2>
+                        <div>
+                            <progress id="myProgressIndeterminateBar" />
+                        </div>
+                    </div>
+
+                    <div class="example">
+                        <h2>Progress indicator - indeterminate ring</h2>
+                        <div>
+                            <progress id="myProgressIndeterminateRing" class="win-ring" />
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </form>
+</body>
+</html>

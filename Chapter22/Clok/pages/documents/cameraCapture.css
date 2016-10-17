@@ -1,0 +1,37 @@
+﻿.cameraCapture section[role=main] {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+.hidden {
+    display: none;
+}
+
+.cameraCapture #cameraPane {
+    float: left;
+    width: 720px;
+    height: 540px;
+}
+
+    .cameraCapture #cameraPane #capturedImage {
+        max-width: 720px;
+        max-height: 540px;
+    }
+
+.cameraCapture #controlsPane {
+    float: left;
+    margin-left: 10px;
+}
+
+    .cameraCapture #controlsPane #goToDocumentsButton {
+        border: 0px;
+        min-width: inherit;
+        font-size: 1.5em;
+    }
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .cameraCapture section[role=main] {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}

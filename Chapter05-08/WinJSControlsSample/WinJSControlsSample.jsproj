@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|AnyCPU">
+      <Configuration>Debug</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|ARM">
+      <Configuration>Debug</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x86">
+      <Configuration>Debug</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|AnyCPU">
+      <Configuration>Release</Configuration>
+      <Platform>AnyCPU</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|ARM">
+      <Configuration>Release</Configuration>
+      <Platform>ARM</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x86">
+      <Configuration>Release</Configuration>
+      <Platform>x86</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>2ad90161-f117-4cd8-981d-5acfa92edde3</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '11.0'">
+    <VisualStudioVersion>11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).Default.props" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).props" />
+  <PropertyGroup>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetPlatformVersion>8.0</TargetPlatformVersion>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <PackageCertificateKeyFile>WinJSControlsSample_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppxManifest Include="package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <Content Include="controls\js\clockControl.js" />
+    <Content Include="controls\pages\contactControl\contactControl.css" />
+    <Content Include="controls\pages\contactControl\contactControl.html" />
+    <Content Include="controls\pages\contactControl\contactControl.js" />
+    <Content Include="css\default.css" />
+    <Content Include="images\400\Ant.png" />
+    <Content Include="images\400\Bat.png" />
+    <Content Include="images\400\Bee.png" />
+    <Content Include="images\400\Bird.png" />
+    <Content Include="images\400\Bug.png" />
+    <Content Include="images\400\Butterfly.png" />
+    <Content Include="images\400\Cat.png" />
+    <Content Include="images\400\Crab.png" />
+    <Content Include="images\400\Crocodile.png" />
+    <Content Include="images\400\Dog.png" />
+    <Content Include="images\400\Dolphin.png" />
+    <Content Include="images\400\Dove.png" />
+    <Content Include="images\400\Duck.png" />
+    <Content Include="images\400\Elephant.png" />
+    <Content Include="images\400\Fish.png" />
+    <Content Include="images\400\Fly.png" />
+    <Content Include="images\400\Giraffe.png" />
+    <Content Include="images\400\Goat.png" />
+    <Content Include="images\400\Hen.png" />
+    <Content Include="images\400\Horse.png" />
+    <Content Include="images\400\Jelly Fish.png" />
+    <Content Include="images\400\Lion.png" />
+    <Content Include="images\400\Monkey.png" />
+    <Content Include="images\400\Octopus.png" />
+    <Content Include="images\400\Owl.png" />
+    <Content Include="images\400\Peacock.png" />
+    <Content Include="images\400\Penguin.png" />
+    <Content Include="images\400\Pig.png" />
+    <Content Include="images\400\Rabbit.png" />
+    <Content Include="images\400\Rat.png" />
+    <Content Include="images\400\Snake.png" />
+    <Content Include="images\400\Squirrel.png" />
+    <Content Include="images\400\Turtle.png" />
+    <Content Include="images\60\Ant.png" />
+    <Content Include="images\60\Bat.png" />
+    <Content Include="images\60\Bee.png" />
+    <Content Include="images\60\Bird.png" />
+    <Content Include="images\60\Bug.png" />
+    <Content Include="images\60\Butterfly.png" />
+    <Content Include="images\60\Cat.png" />
+    <Content Include="images\60\Crab.png" />
+    <Content Include="images\60\Crocodile.png" />
+    <Content Include="images\60\Dog.png" />
+    <Content Include="images\60\Dolphin.png" />
+    <Content Include="images\60\Dove.png" />
+    <Content Include="images\60\Duck.png" />
+    <Content Include="images\60\Elephant.png" />
+    <Content Include="images\60\Fish.png" />
+    <Content Include="images\60\Fly.png" />
+    <Content Include="images\60\Giraffe.png" />
+    <Content Include="images\60\Goat.png" />
+    <Content Include="images\60\Hen.png" />
+    <Content Include="images\60\Horse.png" />
+    <Content Include="images\60\Jelly Fish.png" />
+    <Content Include="images\60\Lion.png" />
+    <Content Include="images\60\Monkey.png" />
+    <Content Include="images\60\Octopus.png" />
+    <Content Include="images\60\Owl.png" />
+    <Content Include="images\60\Peacock.png" />
+    <Content Include="images\60\Penguin.png" />
+    <Content Include="images\60\Pig.png" />
+    <Content Include="images\60\Rabbit.png" />
+    <Content Include="images\60\Rat.png" />
+    <Content Include="images\60\Snake.png" />
+    <Content Include="images\60\Squirrel.png" />
+    <Content Include="images\60\Turtle.png" />
+    <Content Include="images\logo.png" />
+    <Content Include="images\smalllogo.png" />
+    <Content Include="images\splashscreen.png" />
+    <Content Include="images\storelogo.png" />
+    <Content Include="js\data.js" />
+    <Content Include="js\default.js" />
+    <Content Include="js\navigator.js" />
+    <Content Include="pages\customcontrols\customcontrols.css" />
+    <Content Include="pages\customcontrols\customcontrols.html" />
+    <Content Include="pages\customcontrols\customcontrols.js" />
+    <Content Include="pages\flipView\flipView.css" />
+    <Content Include="pages\flipView\flipView.html" />
+    <Content Include="pages\flipView\flipView.js" />
+    <Content Include="pages\home\home.css" />
+    <Content Include="pages\home\home.html" />
+    <Content Include="pages\home\home.js" />
+    <Content Include="default.html" />
+    <Content Include="pages\htmlcontrols\htmlcontrols.css" />
+    <Content Include="pages\htmlcontrols\htmlcontrols.html" />
+    <Content Include="pages\htmlcontrols\htmlcontrols.js" />
+    <Content Include="pages\listViewBasics\listViewBasics.css" />
+    <Content Include="pages\listViewBasics\listViewBasics.html" />
+    <Content Include="pages\listViewBasics\listViewBasics.js" />
+    <Content Include="pages\listViewGrouping\listViewGrouping.css" />
+    <Content Include="pages\listViewGrouping\listViewGrouping.html" />
+    <Content Include="pages\listViewGrouping\listViewGrouping.js" />
+    <Content Include="pages\listViewLayouts\listViewLayouts.css" />
+    <Content Include="pages\listViewLayouts\listViewLayouts.html" />
+    <Content Include="pages\listViewLayouts\listViewLayouts.js" />
+    <Content Include="pages\otherpage\otherpage.css" />
+    <Content Include="pages\otherpage\otherpage.html" />
+    <Content Include="pages\otherpage\otherpage.js" />
+    <Content Include="pages\settingsflyout\settingsflyout.html" />
+    <Content Include="pages\windowscontrols\windowscontrols.css" />
+    <Content Include="pages\windowscontrols\windowscontrols.html" />
+    <Content Include="pages\windowscontrols\windowscontrols.js" />
+    <None Include="WinJSControlsSample_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Microsoft.WinJS.1.0, Version=1.0" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\$(WMSJSProjectDirectory)\Microsoft.VisualStudio.$(WMSJSProject).targets" />
+  <!-- To modify your build process, add your task inside one of the targets below then uncomment
+       that target and the DisableFastUpToDateCheck PropertyGroup. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  <PropertyGroup>
+    <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
+  </PropertyGroup>
+  -->
+</Project>

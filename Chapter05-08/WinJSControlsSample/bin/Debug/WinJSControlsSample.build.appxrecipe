@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>PERRY</Machine>
+    <WindowsUser>sisaacs</WindowsUser>
+    <SolutionConfiguration>Debug|AnyCPU</SolutionConfiguration>
+    <PackageArchitecture>neutral</PackageArchitecture>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\bin\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\controls\js\clockControl.js">
+      <PackagePath>controls\js\clockControl.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\controls\pages\contactControl\contactControl.js">
+      <PackagePath>controls\pages\contactControl\contactControl.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\js\data.js">
+      <PackagePath>js\data.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\js\default.js">
+      <PackagePath>js\default.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\js\navigator.js">
+      <PackagePath>js\navigator.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\customcontrols\customcontrols.js">
+      <PackagePath>pages\customcontrols\customcontrols.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\flipView\flipView.js">
+      <PackagePath>pages\flipView\flipView.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\home\home.js">
+      <PackagePath>pages\home\home.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\htmlcontrols\htmlcontrols.js">
+      <PackagePath>pages\htmlcontrols\htmlcontrols.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\listViewBasics\listViewBasics.js">
+      <PackagePath>pages\listViewBasics\listViewBasics.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\listViewGrouping\listViewGrouping.js">
+      <PackagePath>pages\listViewGrouping\listViewGrouping.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\listViewLayouts\listViewLayouts.js">
+      <PackagePath>pages\listViewLayouts\listViewLayouts.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\otherpage\otherpage.js">
+      <PackagePath>pages\otherpage\otherpage.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\windowscontrols\windowscontrols.js">
+      <PackagePath>pages\windowscontrols\windowscontrols.js</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\controls\pages\contactControl\contactControl.css">
+      <PackagePath>controls\pages\contactControl\contactControl.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\css\default.css">
+      <PackagePath>css\default.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\customcontrols\customcontrols.css">
+      <PackagePath>pages\customcontrols\customcontrols.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\flipView\flipView.css">
+      <PackagePath>pages\flipView\flipView.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\home\home.css">
+      <PackagePath>pages\home\home.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\htmlcontrols\htmlcontrols.css">
+      <PackagePath>pages\htmlcontrols\htmlcontrols.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\listViewBasics\listViewBasics.css">
+      <PackagePath>pages\listViewBasics\listViewBasics.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\listViewGrouping\listViewGrouping.css">
+      <PackagePath>pages\listViewGrouping\listViewGrouping.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\listViewLayouts\listViewLayouts.css">
+      <PackagePath>pages\listViewLayouts\listViewLayouts.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\otherpage\otherpage.css">
+      <PackagePath>pages\otherpage\otherpage.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\windowscontrols\windowscontrols.css">
+      <PackagePath>pages\windowscontrols\windowscontrols.css</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\controls\pages\contactControl\contactControl.html">
+      <PackagePath>controls\pages\contactControl\contactControl.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\customcontrols\customcontrols.html">
+      <PackagePath>pages\customcontrols\customcontrols.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\flipView\flipView.html">
+      <PackagePath>pages\flipView\flipView.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\home\home.html">
+      <PackagePath>pages\home\home.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\default.html">
+      <PackagePath>default.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\htmlcontrols\htmlcontrols.html">
+      <PackagePath>pages\htmlcontrols\htmlcontrols.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\listViewBasics\listViewBasics.html">
+      <PackagePath>pages\listViewBasics\listViewBasics.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\listViewGrouping\listViewGrouping.html">
+      <PackagePath>pages\listViewGrouping\listViewGrouping.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\listViewLayouts\listViewLayouts.html">
+      <PackagePath>pages\listViewLayouts\listViewLayouts.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\otherpage\otherpage.html">
+      <PackagePath>pages\otherpage\otherpage.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\settingsflyout\settingsflyout.html">
+      <PackagePath>pages\settingsflyout\settingsflyout.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\pages\windowscontrols\windowscontrols.html">
+      <PackagePath>pages\windowscontrols\windowscontrols.html</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Ant.png">
+      <PackagePath>images\400\Ant.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Bat.png">
+      <PackagePath>images\400\Bat.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Bee.png">
+      <PackagePath>images\400\Bee.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Bird.png">
+      <PackagePath>images\400\Bird.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Bug.png">
+      <PackagePath>images\400\Bug.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Butterfly.png">
+      <PackagePath>images\400\Butterfly.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Cat.png">
+      <PackagePath>images\400\Cat.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Crab.png">
+      <PackagePath>images\400\Crab.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Crocodile.png">
+      <PackagePath>images\400\Crocodile.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Dog.png">
+      <PackagePath>images\400\Dog.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Dolphin.png">
+      <PackagePath>images\400\Dolphin.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Dove.png">
+      <PackagePath>images\400\Dove.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Duck.png">
+      <PackagePath>images\400\Duck.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Elephant.png">
+      <PackagePath>images\400\Elephant.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Fish.png">
+      <PackagePath>images\400\Fish.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Fly.png">
+      <PackagePath>images\400\Fly.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Giraffe.png">
+      <PackagePath>images\400\Giraffe.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Goat.png">
+      <PackagePath>images\400\Goat.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Hen.png">
+      <PackagePath>images\400\Hen.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Horse.png">
+      <PackagePath>images\400\Horse.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Jelly Fish.png">
+      <PackagePath>images\400\Jelly Fish.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Lion.png">
+      <PackagePath>images\400\Lion.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Monkey.png">
+      <PackagePath>images\400\Monkey.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Octopus.png">
+      <PackagePath>images\400\Octopus.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Owl.png">
+      <PackagePath>images\400\Owl.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Peacock.png">
+      <PackagePath>images\400\Peacock.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Penguin.png">
+      <PackagePath>images\400\Penguin.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Pig.png">
+      <PackagePath>images\400\Pig.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Rabbit.png">
+      <PackagePath>images\400\Rabbit.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Rat.png">
+      <PackagePath>images\400\Rat.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Snake.png">
+      <PackagePath>images\400\Snake.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Squirrel.png">
+      <PackagePath>images\400\Squirrel.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\400\Turtle.png">
+      <PackagePath>images\400\Turtle.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Ant.png">
+      <PackagePath>images\60\Ant.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Bat.png">
+      <PackagePath>images\60\Bat.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Bee.png">
+      <PackagePath>images\60\Bee.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Bird.png">
+      <PackagePath>images\60\Bird.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Bug.png">
+      <PackagePath>images\60\Bug.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Butterfly.png">
+      <PackagePath>images\60\Butterfly.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Cat.png">
+      <PackagePath>images\60\Cat.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Crab.png">
+      <PackagePath>images\60\Crab.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Crocodile.png">
+      <PackagePath>images\60\Crocodile.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Dog.png">
+      <PackagePath>images\60\Dog.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Dolphin.png">
+      <PackagePath>images\60\Dolphin.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Dove.png">
+      <PackagePath>images\60\Dove.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Duck.png">
+      <PackagePath>images\60\Duck.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Elephant.png">
+      <PackagePath>images\60\Elephant.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Fish.png">
+      <PackagePath>images\60\Fish.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Fly.png">
+      <PackagePath>images\60\Fly.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Giraffe.png">
+      <PackagePath>images\60\Giraffe.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Goat.png">
+      <PackagePath>images\60\Goat.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Hen.png">
+      <PackagePath>images\60\Hen.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Horse.png">
+      <PackagePath>images\60\Horse.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Jelly Fish.png">
+      <PackagePath>images\60\Jelly Fish.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Lion.png">
+      <PackagePath>images\60\Lion.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Monkey.png">
+      <PackagePath>images\60\Monkey.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Octopus.png">
+      <PackagePath>images\60\Octopus.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Owl.png">
+      <PackagePath>images\60\Owl.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Peacock.png">
+      <PackagePath>images\60\Peacock.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Penguin.png">
+      <PackagePath>images\60\Penguin.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Pig.png">
+      <PackagePath>images\60\Pig.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Rabbit.png">
+      <PackagePath>images\60\Rabbit.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Rat.png">
+      <PackagePath>images\60\Rat.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Snake.png">
+      <PackagePath>images\60\Snake.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Squirrel.png">
+      <PackagePath>images\60\Squirrel.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\60\Turtle.png">
+      <PackagePath>images\60\Turtle.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\logo.png">
+      <PackagePath>images\logo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\smalllogo.png">
+      <PackagePath>images\smalllogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\splashscreen.png">
+      <PackagePath>images\splashscreen.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\images\storelogo.png">
+      <PackagePath>images\storelogo.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\bin\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Microsoft.WinJS.1.0\1.0\">
+      <Name>Microsoft.WinJS.1.0</Name>
+      <Version>1.0.9200.20602</Version>
+      <Architecture>Neutral</Architecture>
+      <FrameworkIdentity>Name=Microsoft.WinJS.1.0, MinVersion=1.0.9200.20602</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.0\ExtensionSDKs\Microsoft.WinJS.1.0\1.0\Microsoft.WinJS.1.0.appx</AppxLocation>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>

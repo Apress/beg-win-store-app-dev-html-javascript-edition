@@ -1,0 +1,36 @@
+﻿.graph section[role=main] {
+    /*margin-left: 120px;
+    margin-right: 120px;*/
+}
+
+
+#graphcontainer {
+    width: 70vw;
+    height: 70vh;
+    margin: 8px auto;
+}
+
+
+@media screen and (max-width: 1024px) {
+    #graphcontainer {
+        width: 600px;
+        height: 450px;
+        margin: 8px auto;
+    }
+}
+
+
+
+@media screen and (-ms-view-state: snapped) {
+    .graph section[role=main] {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .graph section[role=main] {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}

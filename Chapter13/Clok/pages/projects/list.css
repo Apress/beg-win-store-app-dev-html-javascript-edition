@@ -1,0 +1,85 @@
+﻿.list section[role=main] {
+    margin-left: 120px;
+    margin-right: 120px;
+}
+
+
+#filters {
+    height: 30px;
+}
+
+    #filters button {
+        border: 0px;
+        font-weight: normal;
+    }
+
+        #filters button.selected {
+            font-weight: bold;
+        }
+
+
+.listViewHeader {
+    width: 50px;
+    height: 50px;
+    padding: 8px;
+}
+
+[data-class=listViewItem] {
+    width: 250px;
+    height: 75px;
+    padding: 5px;
+    overflow: hidden;
+}
+
+    [data-class=listViewItem].active {
+        background-color: #000046;
+    }
+
+    [data-class=listViewItem].inactive {
+        background-color: #464646;
+        color: #cccccc;
+    }
+
+#listView {
+    height: 400px;
+    width: 100%;
+}
+
+#zoomedOutListView {
+    height: 400px;
+    width: 100%;
+}
+
+#semanticZoom {
+    height: calc(100% - 30px);
+    width: calc(100% - 120px);
+}
+
+.semanticZoomItem {
+    color: #ffffff;
+    background-color: #000046;
+    width: 50px;
+    height: 40px;
+    padding: 5px 15px;
+}
+
+
+
+
+
+
+
+
+@media screen and (-ms-view-state: snapped) {
+    .list section[role=main] {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .list section[role=main] {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}

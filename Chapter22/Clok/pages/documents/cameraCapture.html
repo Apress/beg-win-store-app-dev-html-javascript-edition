@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>cameraCapture</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="cameraCapture.css" rel="stylesheet" />
+    <script src="cameraCapture.js"></script>
+</head>
+<body>
+    <div class="cameraCapture fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">Camera</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+            <div id="cameraContainer">
+                <div id="cameraPane">
+                    <img id="capturedImage" src="/images/camera-placeholder.png" />
+                </div>
+                <div id="controlsPane">
+                    <select id="projects">
+                        <option value="">Choose a project</option>
+                    </select>
+                    <button id="goToDocumentsButton" disabled="disabled">&#xe16c;</button>
+                    <br />
+                    <button id="saveCameraCaptureButton">Save</button>
+                    <button id="discardCameraCaptureButton">Discard</button>
+                </div>
+            </div>
+            <div id="noCamera" class="hidden">No camera is available on this computer.</div>
+        </section>
+    </div>
+</body>
+</html>

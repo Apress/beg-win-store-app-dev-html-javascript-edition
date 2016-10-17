@@ -1,0 +1,9 @@
+C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\bin\Debug\resources.pri
+C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\bin\Debug\AppxManifest.xml
+C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\bin\Debug\WinJSControlsSample.build.appxrecipe
+C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\bld\Debug\priconfig.xml
+C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\bld\Debug\layout.resfiles
+C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\bld\Debug\resources.resfiles
+C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\bld\Debug\pri.resfiles
+C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\bld\Debug\LanguageQualifiers.txt
+C:\Projects\GitHub\WinJSControlsSample\WinJSControlsSample\bld\Debug\ProjectArchitectures.txt

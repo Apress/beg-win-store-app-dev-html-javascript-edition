@@ -1,0 +1,99 @@
+﻿.directions section[role=main] {
+    margin-left: 120px;
+    width: calc(100% - 120px);
+}
+
+.hidden {
+    display: none;
+}
+
+#directionsContainer {
+    display: -ms-flexbox;
+    -ms-flex-align: start;
+    -ms-flex-pack: start;
+    -ms-flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    height: calc(100% - 10px);
+}
+
+#locationsPane {
+    -ms-flex: 0 auto;
+    width: 500px;
+    height: 100%;
+}
+
+    #locationsPane h2,
+    #locationsPane .formField {
+        padding-bottom: 10px;
+    }
+
+    #locationsPane #fromLocation {
+        width: 400px;
+    }
+
+#directionsPane {
+    -ms-flex: 0 auto;
+    width: 600px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 100%;
+}
+
+    #directionsPane #directionsSuccess {
+        height: 100%;
+    }
+
+    #directionsPane #totalDistance,
+    #directionsPane #totalTime {
+        font-size: 1.3em;
+    }
+
+    #directionsPane #directionsListView {
+        height: calc(100% - 150px);
+    }
+
+        #directionsPane #directionsListView .win-container {
+            background-color: #46468C;
+        }
+
+        #directionsPane #directionsListView .win-container:last-of-type {
+            background-color: limegreen;
+        }
+
+#directionsListView .directionsItem {
+    display: -ms-grid;
+    -ms-grid-columns: 1fr 150px;
+    height: 60px;
+}
+
+
+#directionsListView .directionsItem-instruction {
+    -ms-grid-column: 1;
+    margin: 5px;
+}
+
+#directionsListView .directionsItem-distance {
+    -ms-grid-column: 2;
+    margin-left: 5px;
+    margin-right: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+    text-align: right;
+}
+
+
+
+
+@media screen and (-ms-view-state: snapped) {
+    .directions section[role=main] {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .directions section[role=main] {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}

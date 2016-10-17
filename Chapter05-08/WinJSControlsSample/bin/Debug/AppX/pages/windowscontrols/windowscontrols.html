@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>windowscontrols</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-light.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="windowscontrols.css" rel="stylesheet" />
+    <script src="windowscontrols.js"></script>
+</head>
+<body>
+    <div id="myAppBar" class="win-ui-dark" data-win-control="WinJS.UI.AppBar">
+        <button
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{id:'myAddCommand',label:'Add',icon:'add',
+                section:'global',tooltip:'Add item'}">
+        </button>
+        <button
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{id:'myRemoveCommand',label:'Done',icon:'accept',
+            section:'selection',tooltip:'Mark item done'}">
+        </button>
+        <hr
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{type:'separator',section:'selection'}" />
+        <button
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{id:'myDeleteCommand',label:'Delete',icon:'delete',
+                section:'selection',tooltip:'Delete item'}">
+        </button>
+    </div>
+
+    <div id="myFlyout" data-win-control="WinJS.UI.Flyout">
+        <div>This is a flyout.</div>
+        <button id="myCloseFlyoutButton">Close flyout</button>
+    </div>
+
+    <div class="windowscontrols fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">WinJS Controls</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+            <div id="col1">
+                <div class="example">
+                    <h2>Application toolbar</h2>
+                    <div>
+                        Right-click or swipe from the bottom edge of the screen to view the AppBar.
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h2>Tooltip, simple</h2>
+                    <div>
+                        <label title="This is a simple, text only tooltip">This label has a simple tooltip.</label>
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h2>Tooltip, rich content</h2>
+                    <div>
+                        <label id="myRichTooltip" data-win-control="WinJS.UI.Tooltip"
+                            data-win-options="{infotip: true, 
+                                innerHTML: 'Here is a <strong>richer</strong> <em>tooltip</em>.'}">
+                            This label has a rich tooltip.    
+                        </label>
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h2>Date picker</h2>
+                    <div>
+                        <div id="myDatePicker" data-win-control="WinJS.UI.DatePicker"></div>
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h2>Time picker</h2>
+                    <div>
+                        <div id="myTimePicker" data-win-control="WinJS.UI.TimePicker"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="col2">
+                <div class="example">
+                    <h2>Toggle switch</h2>
+                    <div>
+                        <div id="myToggle" data-win-control="WinJS.UI.ToggleSwitch"></div>
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h2>Rating</h2>
+                    <div>
+                        <div id="myRating" data-win-control="WinJS.UI.Rating" 
+                            data-win-options="{averageRating:3.6,
+                                tooltipStrings:['Hate it','Dislike it','It\'s Ok','Like it','Love it']}"></div>
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h2>Message dialog</h2>
+                    <div>
+                        <button id="myShowDialogButton">Show message</button>
+                        <span id="myDialogResult"></span>
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h2>Flyout</h2>
+                    <div>
+                        <button id="myShowFlyoutButton">Show flyout</button>
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h2>Settings flyout</h2>
+                    <div>
+                        <button id="myShowSettingsButton">Show Settings</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>library</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="library.css" rel="stylesheet" />
+    <script src="library.js"></script>
+</head>
+<body>
+    <div id="libraryAppBar"
+        class="win-ui-dark"
+        data-win-control="WinJS.UI.AppBar"
+        data-win-options="{ sticky: true }">
+
+        <button
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{
+                id:'openDocumentCommand',
+                label:'Open',
+                icon:'openfile',
+                section:'selection',
+                tooltip:'Open',
+                disabled: true}">
+        </button>
+
+        <button
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{
+                id:'openWithDocumentCommand',
+                label:'Open With...',
+                icon:'openwith',
+                section:'selection',
+                tooltip:'Open With...',
+                disabled: true}">
+        </button>
+
+        <button
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{
+                id:'exportDocumentsCommand',
+                label:'Export',
+                icon:'savelocal',
+                section:'selection',
+                tooltip:'Export',
+                disabled: true}">
+        </button>
+
+        <button
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{
+                id:'deleteDocumentsCommand',
+                label:'Delete',
+                icon:'delete',
+                section:'selection',
+                tooltip:'Delete',
+                disabled: true}">
+        </button>
+
+
+        <button
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{
+                id:'addDocumentsCommand',
+                label:'Add',
+                icon:'add',
+                section:'global',
+                tooltip:'Add'}">
+        </button>
+    </div>
+
+    <div class="library fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">Document Library</span>
+                <span class="win-type-x-large" id="projectName">[Project Name]</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+            <div id="libraryTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+                <div class="libraryItem" data-win-bind="item: item Clok.Library.bindLibraryItem" >
+                    <div class="libraryItem-icon-container">
+                        <img class="libraryItem-icon" />
+                    </div>
+                    <div class="libraryItem-details">
+                        <h3 class="libraryItem-filename win-type-ellipsis"></h3>
+                        <h6 class="libraryItem-modified-container win-type-ellipsis">
+                            <strong>Modified:</strong> <span class="libraryItem-modified"></span>
+                        </h6>
+                        <h6 class="libraryItem-size-container win-type-ellipsis">
+                            <strong>Size:</strong> <span class="libraryItem-size"></span>
+                        </h6>
+                    </div>
+                </div>
+            </div>
+
+            <div id="libraryListView"
+                class="win-selectionstylefilled"
+                data-win-control="WinJS.UI.ListView"
+                data-win-options="{ 
+                    itemTemplate: select('#libraryTemplate'),
+                    selectionMode: 'multi', 
+                    swipeBehavior: 'select', 
+                    tapBehavior: 'directSelect' 
+                }">
+            </div>
+            <div id="noDocuments" class="hidden">No documents found for this project.</div>
+        </section>
+    </div>
+</body>
+</html>

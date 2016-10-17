@@ -1,0 +1,171 @@
+﻿/// <reference path="/controls/js/clockControl.js" />
+/// <reference path="/js/extendedSplash.js" />
+// For an introduction to the Navigation template, see the following documentation:
+// http://go.microsoft.com/fwlink/?LinkId=232506
+(function () {
+    "use strict";
+
+    WinJS.Binding.optimizeBindingReferences = true;
+
+    var app = WinJS.Application;
+    var activation = Windows.ApplicationModel.Activation;
+    var nav = WinJS.Navigation;
+
+    var appData = Windows.Storage.ApplicationData.current;
+    var roamingSettings = appData.roamingSettings;
+
+    app.addEventListener("activated", function (args) {
+        if ((args.detail.kind === activation.ActivationKind.launch)
+                || (args.detail.kind === activation.ActivationKind.search)) {
+
+            var extender = new Clok.SplashScreen.Extender(
+                extendedSplash,
+                args.detail.splashScreen,
+                function (e) {
+                    args.setPromise(Clok.Data.Storage.initialize());
+                    simulateDelay(500);
+                    launchActivation(args);
+                });
+        }
+    });
+
+    app.oncheckpoint = function (args) {
+        // TODO: This application is about to be suspended. Save any state
+        // that needs to persist across suspensions here. If you need to 
+        // complete an asynchronous operation before your application is 
+        // suspended, call args.setPromise().
+        app.sessionState.history = nav.history;
+    };
+
+    appData.addEventListener("datachanged", function (args) {
+        configureClock();
+    });
+
+    var simulateDelay = function (ms) {
+        var start = new Date().getTime();
+        while (new Date().getTime() - start < ms) { }
+    }
+
+    var launchActivation = function (args) {
+        if (args.detail.previousExecutionState !== activation.ApplicationExecutionState.terminated) {
+            // TODO: This application has been newly launched. Initialize
+            // your application here.
+        } else {
+            // TODO: This application has been reactivated from suspension.
+            // Restore application state here.
+        }
+
+        if (app.sessionState.history) {
+            nav.history = app.sessionState.history;
+        }
+
+        initializeRoamingSettings();
+
+        // add our SettingsFlyout to the list when the Settings charm is shown
+        WinJS.Application.onsettings = function (e) {
+            e.detail.applicationcommands = {
+                "options": {
+                    title: "Clok Options",
+                    href: "/settings/options.html"
+                },
+                "invoiceOptions": {
+                    title: "Invoice Options",
+                    href: "/settings/invoiceOptions.html"
+                },
+                "about": {
+                    title: "About Clok",
+                    href: "/settings/about.html"
+                }
+            };
+
+            if (roamingSettings.values["enableIndexedDbHelper"]) {
+                e.detail.applicationcommands.idbhelper = {
+                    title: "IndexedDB Helper",
+                    href: "/settings/idbhelper.html"
+                };
+            }
+
+            WinJS.UI.SettingsFlyout.populateSettings(e);
+        };
+
+        args.setPromise(WinJS.UI.processAll().then(function () {
+            configureClock();
+
+            if (args.detail.kind === activation.ActivationKind.search) {
+                var searchPageURI = "/pages/searchResults/searchResults.html";
+                var execState = activation.ApplicationExecutionState;
+
+                if (args.detail.queryText === "") {
+                    if ((args.detail.previousExecutionState === execState.closedByUser)
+                            || (args.detail.previousExecutionState === execState.notRunning)) {
+                        return nav.navigate(Application.navigator.home);
+                    } else if ((args.detail.previousExecutionState === execState.suspended)
+                            || (args.detail.previousExecutionState === execState.terminated)) {
+                        return nav.navigate(nav.location, nav.state);
+                    }
+                    else {
+                        return nav.navigate(searchPageURI, { queryText: args.detail.queryText });
+                    }
+                } else {
+                    if (!nav.location) {
+                        nav.history.current = {
+                            location: Application.navigator.home,
+                            initialState: {}
+                        };
+                    }
+
+                    return nav.navigate(searchPageURI, { queryText: args.detail.queryText });
+                }
+            } else if ((args.detail.tileId.indexOf("Tile.Project.") >= 0)
+                    && (ClokUtilities.Guid.isGuid(args.detail.arguments))) {
+                nav.navigate("/pages/projects/detail.html", { id: args.detail.arguments });
+            } else if (nav.location) {
+                nav.history.current.initialPlaceholder = true;
+                return nav.navigate(nav.location, nav.state);
+            } else {
+                return nav.navigate(Application.navigator.home);
+            }
+        }));
+    }
+
+    var configureClock = function () {
+        currentTime.winControl.showClockSeconds = roamingSettings.values["clockSeconds"];
+        currentTime.winControl.mode = roamingSettings.values["clockMode"];
+    };
+
+    // ensure that our settings always have default values
+    var initializeRoamingSettings = function () {
+        roamingSettings.values["clockSeconds"] =
+            roamingSettings.values["clockSeconds"] || false;
+
+        roamingSettings.values["clockMode"] =
+            roamingSettings.values["clockMode"] || Clok.UI.ClockModes.CurrentTime12;
+
+        roamingSettings.values["bingMapsTimeout"] =
+            roamingSettings.values["bingMapsTimeout"] || 5000;
+
+        roamingSettings.values["bingDistanceUnit"] =
+            roamingSettings.values["bingDistanceUnit"] || "mi";
+
+        roamingSettings.values["enableIndexedDbHelper"] =
+            roamingSettings.values["enableIndexedDbHelper"] || false;
+
+        roamingSettings.values["hideTimeSheetClipboardMessage"] =
+            roamingSettings.values["hideTimeSheetClipboardMessage"] || false;
+
+        roamingSettings.values["hideAlreadyRunningToastOnLaunchToggle"] =
+            roamingSettings.values["hideAlreadyRunningToastOnLaunchToggle"] || false;
+
+        roamingSettings.values["invoiceCompanyName"] =
+            roamingSettings.values["invoiceCompanyName"] || "Your Company Name";
+
+        roamingSettings.values["invoiceDefaultRate"] =
+            roamingSettings.values["invoiceDefaultRate"] || 50.00;
+
+        roamingSettings.values["invoicePaymentOptions"] =
+            roamingSettings.values["invoicePaymentOptions"] || "Payment is due within 30 days.";
+
+    };
+
+    app.start();
+})();

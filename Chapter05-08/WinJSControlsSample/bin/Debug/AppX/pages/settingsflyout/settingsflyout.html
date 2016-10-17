@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Settings Flyout Sample</title>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+</head>
+<body>
+    <div id="settingsDiv" data-win-control="WinJS.UI.SettingsFlyout" 
+        aria-label="Settings flyout sample" 
+        data-win-options="{settingsCommandId:'settingsflyout',width:'wide'}">
+        
+        <div class="win-ui-dark win-header" style="background-color: #464646">
+            <button type="button" class="win-backbutton" 
+                onclick="WinJS.UI.SettingsFlyout.show()"></button>
+            <div class="win-label">Settings Flyout Sample</div>
+        </div>
+        <div class="win-content">
+            Put your settings here.
+        </div>
+    </div>
+</body>
+</html>

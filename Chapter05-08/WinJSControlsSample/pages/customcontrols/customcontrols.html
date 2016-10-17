@@ -1,0 +1,110 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>customcontrols</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-light.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="customcontrols.css" rel="stylesheet" />
+    <script src="customcontrols.js"></script>
+    <script src="/controls/js/clockControl.js"></script>
+    <script src="/controls/pages/contactControl/contactControl.js"></script>
+</head>
+<body>
+    <div class="customcontrols fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">Custom Controls</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+            <div id="col1">
+
+                <header>JavaScript Examples</header>
+
+                <div class="example">
+                    <h2>Clock - 12 hr</h2>
+                    <div>
+                        <div id="myClock12"
+                            data-win-control="WinJSControlsSample.UI.Clock">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h2>Clock - 24 hr</h2>
+                    <div>
+                        <div id="myClock24"
+                            data-win-control="WinJSControlsSample.UI.Clock"
+                            data-win-options="{ 
+                                mode: WinJSControlsSample.UI.ClockModes.CurrentTime24, 
+                                showClockSeconds: false 
+                            }">
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="example">
+                    <h2>Count Down</h2>
+                    <div>
+                        <div id="myCountDown"
+                            data-win-control="WinJSControlsSample.UI.Clock"
+                            data-win-options="{ 
+                                mode: WinJSControlsSample.UI.ClockModes.CountDown, 
+                                initialCounterValue: 10 }">
+                        </div>
+                        <button id="downStart">Start</button>
+                        <button id="downStop" disabled>Stop</button>
+                        <button id="downReset" disabled>Reset</button>
+                        <span id="downEventStatus"></span>
+                    </div>
+                </div>
+
+                <div class="example">
+                    <h2>Count Up (Elapsed Time)</h2>
+                    <div>
+                        <div id="myCountUp"
+                            data-win-control="WinJSControlsSample.UI.Clock"
+                            data-win-options="{ 
+                                mode: WinJSControlsSample.UI.ClockModes.CountUp, 
+                                initialCounterValue: [10, 59, 50], 
+                                autoStartCounter: true }">
+                        </div>
+                        <div id="upEventStatus">10 second ticks: </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            <div id="col2">
+
+                <header>PageControl Examples</header>
+            
+                <div class="example">
+                    <h2>Contact Control</h2>
+                    <div>
+                        <div id="myContact"
+                            data-win-control="WinJSControlsSample.UI.Contact"
+                            data-win-options="{ 
+                                first: 'Scott', 
+                                last: 'Isaacs', 
+                                birthday: 'December 1' }">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </section>
+    </div>
+</body>
+</html>

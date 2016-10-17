@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>IndexedDB Helper</title>
+
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <script src="/js/extensions.js"></script>
+    <script src="/js/utilities.js"></script>
+
+    <script src="/data/project.js"></script>
+    <script src="/data/timeEntry.js"></script>
+    <script src="/data/storage.js"></script>
+
+    <script>
+
+        function deleteAllData() {
+            var msg = new Windows.UI.Popups.MessageDialog("This cannot be undone.  Do you wish to continue?", "You're about to remove all data from Clok.");
+
+            msg.commands.append(new Windows.UI.Popups.UICommand("Yes, Delete It", function (command) {
+                var storage = Clok.Data.Storage;
+                storage.projects.forEach(function (p) {
+                    storage.projects.delete(p, true);
+                });
+                storage.timeEntries.forEach(function (te) {
+                    storage.timeEntries.delete(te);
+                });
+            }));
+
+            msg.commands.append(new Windows.UI.Popups.UICommand("No, Don't Delete It", function (command) { }));
+
+            msg.defaultCommandIndex = 0;
+            msg.cancelCommandIndex = 1;
+
+            msg.showAsync();
+        }
+
+        function addTestData() {
+
+            var projects = Clok.Data.Storage.projects;
+            var time = Clok.Data.Storage.timeEntries;
+
+            if (projects.length > 0 || time.length > 0) {
+                var msg = new Windows.UI.Popups.MessageDialog("You cannot add test data since Clok already contains data.", "Cannot add test data.");
+                msg.showAsync();
+                return;
+            }
+
+
+            var createProject = function (name, projectNumber, clientName, id, status) {
+                var newProject = new Clok.Data.Project();
+                newProject.id = id;
+                newProject.name = name;
+                newProject.projectNumber = projectNumber;
+                newProject.clientName = clientName;
+                newProject.status = status || newProject.status;
+
+                return newProject;
+            }
+
+            var name1 = "Windows Store App";
+            var name2 = "Mobile Website";
+            var name3 = "Website Redesign";
+            var name4 = "Employee Portal";
+
+            var client1 = "Northwind Traders";
+            var client2 = "Contoso Ltd.";
+            var client3 = "AdventureWorks Cycles";
+            var client4 = "TailSpin Toys";
+            var client5 = "A. Datum Corporation";
+            var client6 = "Woodgrove Bank";
+            var client7 = "Fabrikam, Inc.";
+
+            projects.save(createProject(name1, "2012-0003", client1, 1368296808745, Clok.Data.ProjectStatuses.Inactive));
+            projects.save(createProject(name2, "2012-0008", client2, 1368296808746, Clok.Data.ProjectStatuses.Inactive));
+            projects.save(createProject(name3, "2012-0011", client1, 1368296808747, Clok.Data.ProjectStatuses.Inactive));
+
+            // one needs an address for map example
+            var project = createProject(name1, "2012-0017", client3, 1368296808748);
+            project.address1 = "1 Microsoft Way";
+            project.city = "Redmond";
+            project.region = "WA";
+            project.postalCode = "98052";
+            projects.save(project);
+
+            projects.save(createProject(name3, "2012-0018", client4, 1368296808749, Clok.Data.ProjectStatuses.Deleted));
+            projects.save(createProject(name1, "2012-0023", client5, 1368296808750, Clok.Data.ProjectStatuses.Deleted));
+            projects.save(createProject(name3, "2012-0027", client6, 1368296808751, Clok.Data.ProjectStatuses.Inactive));
+            projects.save(createProject(name3, "2012-0030", client7, 1368296808752, Clok.Data.ProjectStatuses.Inactive));
+            projects.save(createProject(name3, "2012-0033", client3, 1368296808753));
+            projects.save(createProject(name2, "2012-0039", client1, 1368296808754, Clok.Data.ProjectStatuses.Inactive));
+            projects.save(createProject(name4, "2012-0042", client3, 1368296808755, Clok.Data.ProjectStatuses.Inactive));
+            projects.save(createProject(name3, "2012-0050", client5, 1368296808756, Clok.Data.ProjectStatuses.Inactive));
+            projects.save(createProject(name1, "2012-0053", client4, 1368296808757, Clok.Data.ProjectStatuses.Inactive));
+            projects.save(createProject(name2, "2013-0012", client5, 1368296808758));
+            projects.save(createProject(name2, "2013-0013", client7, 1368296808759));
+            projects.save(createProject(name4, "2013-0016", client1, 1368296808760, Clok.Data.ProjectStatuses.Deleted));
+            projects.save(createProject(name4, "2013-0017", client6, 1368296808761));
+            projects.save(createProject(name3, "2013-0018", client2, 1368296808762));
+
+
+
+            var createTime = function (id, projectId, dateWorked, elapsedSeconds, notes) {
+                var newTimeEntry = new Clok.Data.TimeEntry();
+                newTimeEntry.id = id;
+                newTimeEntry.projectId = projectId;
+                newTimeEntry.dateWorked = dateWorked;
+                newTimeEntry.elapsedSeconds = elapsedSeconds;
+                newTimeEntry.notes = notes;
+
+                return newTimeEntry;
+            }
+
+            var date1 = (new Date()).addMonths(-1).addDays(1);
+            var date2 = (new Date()).addMonths(-1).addDays(2);
+            var date3 = (new Date()).addMonths(-1).addDays(3);
+            var date4 = (new Date()).addMonths(-1).addDays(4);
+            var date5 = (new Date()).addMonths(-1).addDays(5);
+
+            var timeId = 1369623987766;
+            time.save(createTime(timeId++, 1368296808757, date1, 10800, "Lorem ipsum dolor sit."));
+            time.save(createTime(timeId++, 1368296808757, date2, 7200, "Amet, consectetur adipiscing."));
+            time.save(createTime(timeId++, 1368296808757, date3, 7200, "Praesent congue euismod diam."));
+            time.save(createTime(timeId++, 1368296808760, date2, 7200, "Curabitur euismod mollis."));
+            time.save(createTime(timeId++, 1368296808759, date1, 7200, "Donec sit amet porttitor."));
+            time.save(createTime(timeId++, 1368296808758, date3, 8100, "Praesent congue euismod diam."));
+            time.save(createTime(timeId++, 1368296808758, date2, 14400, "Curabitur euismod mollis."));
+            time.save(createTime(timeId++, 1368296808761, date4, 7200, "Donec sit amet porttitor."));
+            time.save(createTime(timeId++, 1368296808748, date3, 7200, "Praesent congue euismod diam."));
+            time.save(createTime(timeId++, 1368296808748, date2, 7200, "Curabitur euismod mollis."));
+            time.save(createTime(timeId++, 1368296808748, date1, 7200, "Donec sit amet porttitor."));
+            time.save(createTime(timeId++, 1368296808746, date4, 8100, "Praesent congue euismod diam."));
+            time.save(createTime(timeId++, 1368296808753, date2, 14400, "Curabitur euismod mollis."));
+            time.save(createTime(timeId++, 1368296808753, date1, 7200, "Donec sit amet porttitor."));
+            time.save(createTime(timeId++, 1368296808761, date5, 10800, "Donec semper risus nec."));
+        }
+
+    </script>
+</head>
+<body>
+    <div id="settingsDiv" data-win-control="WinJS.UI.SettingsFlyout"
+        aria-label="IndexedDB Helper"
+        data-win-options="{settingsCommandId:'idbhelper',width:'wide'}">
+
+        <div class="win-ui-dark win-header" style="background-color: #000046;">
+            <button type="button" class="win-backbutton"
+                onclick="WinJS.UI.SettingsFlyout.show()">
+            </button>
+            <div class="win-label clok-logo">IndexedDB Helper</div>
+        </div>
+        <div class="win-content">
+            <div class="win-settings-section">
+                <button onclick="deleteAllData();" style="background-color:red;">Delete All Data</button>
+                <button onclick="addTestData();">Add Test Data</button>
+                <iframe style="width: 550px; height: 600px" 
+                    src="/settings/IDBExplorer/IDBExplorer.html?name=Clok"></iframe>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

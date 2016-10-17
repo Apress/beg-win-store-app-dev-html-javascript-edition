@@ -1,0 +1,118 @@
+﻿.timeEntryListPage section[role=main] {
+    margin-left: 120px;
+    width: calc(100% - 120px);
+}
+
+.hidden {
+    display: none;
+}
+
+#timeEntriesContainer {
+    display: -ms-flexbox;
+    -ms-flex-align: start;
+    -ms-flex-pack: start;
+    -ms-flex-direction: row;
+    -ms-flex-wrap: nowrap;
+    height: 100%;
+}
+
+#timeEntriesListViewPane {
+    -ms-flex: 0 auto;
+    width: 600px;
+    height: 100%;
+}
+
+#timeEntriesListView {
+    height: 100%;
+}
+
+    #timeEntriesListView .win-container {
+        background-color: #46468C;
+    }
+
+    #timeEntriesListView .timeEntryItem {
+        display: -ms-grid;
+        -ms-grid-columns: auto 1fr 150px;
+    }
+
+    #timeEntriesListView .timeEntryItem-dateWorked {
+        -ms-grid-column: 1;
+        margin: 5px;
+        width: 75px;
+        height: 75px;
+        text-align: center;
+        background-color: #8C8CD2;
+    }
+
+    #timeEntriesListView .timeEntryItem-dateWorked-day {
+        font-weight: bold;
+    }
+
+    #timeEntriesListView .timeEntryItem-projectInfo {
+        -ms-grid-column: 2;
+        margin: 5px;
+    }
+
+    #timeEntriesListView .timeEntryItem-projectName {
+        font-size: 1.25em;
+    }
+
+    #timeEntriesListView .timeEntryItem-timeWorked {
+        -ms-grid-column: 3;
+        height: 100%;
+        margin-left: 5px;
+        margin-right: 10px;
+        text-align: right;
+        display: -ms-flexbox;
+        -ms-flex-pack: center;
+        -ms-flex-direction: column;
+    }
+
+    #timeEntriesListView .timeEntryItem-timeWorked-elapsed {
+        font-weight: bold;
+    }
+
+#clearFilterButton {
+    border: 0px;
+    background-color: transparent;
+    float: right;
+}
+
+    #clearFilterButton:active {
+        color: #666666;
+    }
+
+#timeEntryDetailPane {
+    -ms-flex: 1 auto;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+    #timeEntryDetailPane #addTimeButton,
+    #timeEntryDetailPane #subtractTimeButton {
+        border: 0px;
+        min-width: inherit;
+        font-size: 1.5em;
+    }
+
+    #timeEntryDetailPane #timeWorked {
+        width: 75px;
+    }
+
+    #timeEntryDetailPane #notes {
+        height: 100px;
+    }
+
+@media screen and (-ms-view-state: snapped) {
+    .timeEntryListPage section[role=main] {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+@media screen and (-ms-view-state: fullscreen-portrait) {
+    .timeEntryListPage section[role=main] {
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+}

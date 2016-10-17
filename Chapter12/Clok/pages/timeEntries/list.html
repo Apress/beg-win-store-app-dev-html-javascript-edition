@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>list</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="list.css" rel="stylesheet" />
+    <script src="list.js"></script>
+</head>
+<body>
+    <div id="filterFlyout"
+        data-win-control="WinJS.UI.Flyout">
+
+        <label for="filterStartDate">From</label><br />
+        <div id="filterStartDate" data-win-control="WinJS.UI.DatePicker"></div>
+
+        <br />
+
+        <label for="filterEndDate">To</label><br />
+        <div id="filterEndDate" data-win-control="WinJS.UI.DatePicker"></div>
+
+        <hr />
+
+        <label for="filterProjectId">Project</label><br />
+        <select id="filterProjectId">
+            <option value="-1">All projects</option>
+        </select>
+
+        <br />
+
+        <button id="clearFilterButton">&#xe106; Clear Filter</button>
+    </div>
+
+    <div id="timeEntryAppBar"
+        class="win-ui-dark"
+        data-win-control="WinJS.UI.AppBar"
+        data-win-options="{ sticky: true }">
+
+        <button
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{
+                id:'deleteTimeEntriesCommand',
+                label:'Delete',
+                icon:'delete',
+                section:'selection',
+                tooltip:'Delete',
+                disabled: true}">
+        </button>
+
+        <button
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{
+                id:'filterTimeEntriesCommand',
+                label:'Filter',
+                icon:'filter',
+                type: 'flyout',
+                flyout: 'filterFlyout',
+                section:'global',
+                tooltip:'Filter'}">
+        </button>
+
+        <button
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{
+                id:'addTimeEntryCommand',
+                label:'Add',
+                icon:'add',
+                section:'global',
+                tooltip:'Add'}">
+        </button>
+    </div>
+
+    <div class="timeEntryListPage fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">Time Sheets</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+            <div id="timeEntryTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+                <div class="timeEntryItem">
+                    <div class="timeEntryItem-dateWorked">
+                        <h5 class="timeEntryItem-dateWorked-mon" data-win-bind="textContent: dateWorked Clok.Data.DateToMonthConverter"></h5>
+                        <h2 class="timeEntryItem-dateWorked-day" data-win-bind="textContent: dateWorked Clok.Data.DateToDayConverter"></h2>
+                        <h5 class="timeEntryItem-dateWorked-year" data-win-bind="textContent: dateWorked Clok.Data.DateToYearConverter"></h5>
+                    </div>
+                    <div class="timeEntryItem-projectInfo">
+                        <h3 class="timeEntryItem-projectName win-type-ellipsis" data-win-bind="textContent: project.name"></h3>
+                        <h6 class="timeEntryItem-clientName win-type-ellipsis" data-win-bind="textContent: project.clientName"></h6>
+                        <h6 class="timeEntryItem-projectNumber" data-win-bind="textContent: project.projectNumber"></h6>
+                    </div>
+                    <div class="timeEntryItem-timeWorked">
+                        <h2 class="timeEntryItem-timeWorked-elapsed" data-win-bind="textContent: elapsedSeconds Clok.Data.SecondsToHoursConverter"></h2>
+                        <h5>hours</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div id="timeEntriesContainer">
+                <div id="timeEntriesListViewPane">
+                    <div
+                        id="timeEntriesListView"
+                        class="itemlist win-selectionstylefilled"
+                        data-win-control="WinJS.UI.ListView"
+                        data-win-options="{ 
+                            itemTemplate: select('#timeEntryTemplate'),
+                            selectionMode: 'multi', 
+                            swipeBehavior: 'select', 
+                            tapBehavior: 'directSelect' 
+                        }">
+                    </div>
+                    <div id="noMatchesFound" class="hidden">No data found.  Try adjusting the filters.</div>
+                    <div id="searchInProgress" class="hidden">
+                        Searching for time entries...<br />
+                        <progress />
+                    </div>
+                    <div id="searchError" class="hidden">There was an error searching for time entries.</div>
+
+
+
+                </div>
+                <div id="timeEntryDetailPane">
+                    <h2 id="formHeader">Add Time Entry</h2>
+                    <div class="formField">
+                        <label for="dateWorked">Date Worked</label><br />
+                        <div id="dateWorked"
+                            data-win-control="WinJS.UI.DatePicker"
+                            data-win-bind="winControl.current: dateWorked">
+                        </div>
+                    </div>
+                    <div class="formField">
+                        <label for="timeWorked">Hours Worked</label><br />
+                        <input type="number" id="timeWorked"
+                            data-win-bind="value: elapsedSeconds Clok.Data.SecondsToHoursConverter">
+                        <button id="addTimeButton">&#xe109;</button>
+                        <button id="subtractTimeButton">&#xe108;</button>
+                    </div>
+                    <div class="formField">
+                        <label for="projectId">Project</label><br />
+                        <select id="projectId" data-win-bind="value: projectId">
+                            <option value="-1">Choose a project</option>
+                        </select>
+                    </div>
+                    <div class="formField">
+                        <label for="notes">Notes</label><br />
+                        <textarea id="notes" data-win-bind="value: notes"></textarea>
+                    </div>
+                    <button id="saveTimeButton">Save</button>
+                    <button id="cancelTimeButton">Cancel</button>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

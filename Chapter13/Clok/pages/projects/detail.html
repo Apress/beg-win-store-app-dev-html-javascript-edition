@@ -1,0 +1,161 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>detail</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="detail.css" rel="stylesheet" />
+    <script src="detail.js"></script>
+</head>
+<body>
+    <div id="projectDetailAppBar" 
+            class="win-ui-dark" 
+            data-win-control="WinJS.UI.AppBar" 
+            data-win-options="{ sticky: true }">
+
+        <button
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{
+                id:'saveProjectCommand',
+                label:'Save',
+                icon:'save',
+                section:'selection',
+                tooltip:'Save'}">
+        </button>
+        <hr
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{type:'separator',section:'selection'}" />
+        <button
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{
+                id:'deleteProjectCommand',
+                label:'Delete',
+                icon:'delete',
+                section:'selection',
+                tooltip:'Delete',
+                disabled: true}">
+        </button>
+        <hr
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{type:'separator',section:'selection'}" />
+        <button
+            data-win-control="WinJS.UI.AppBarCommand"
+            data-win-options="{
+                id:'goToTimeEntriesCommand',
+                label:'Time Sheet',
+                icon:'url(/images/Timesheet-small-sprites.png)',
+                section:'selection',
+                tooltip:'Time Entries',
+                disabled: true}">
+        </button>
+    </div>
+
+    <div class="detail fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">Project Detail</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+            <form id="projectDetailForm" onsubmit="return false;">
+                <div class="formField required" style="-ms-grid-row: 1; -ms-grid-column: 1; ">
+                    <label for="projectName">Project Name</label><br />
+                    <input type="text" id="projectName" 
+                        maxlength="75" 
+                        autofocus 
+                        data-win-bind="value: name">
+                </div>
+                <div class="formField required" style="-ms-grid-row: 1; -ms-grid-column: 3;">
+                    <label for="projectNumber">Project Number</label><br />
+                    <input type="text" id="projectNumber" 
+                        maxlength="25" 
+                        data-win-bind="value: projectNumber">
+                </div>
+                <div class="formField" style="-ms-grid-row: 1; -ms-grid-column: 5;">
+                    <label for="projectStatus">Status</label><br />
+                    <div id="projectStatus" 
+                        data-win-control="WinJS.UI.ToggleSwitch" 
+                        data-win-options="{ labelOn: 'Active', labelOff: 'Inactive' }" 
+                        data-win-bind="winControl.checked: status Clok.Data.ProjectStatusToBoolConverter"></div>
+                </div>
+
+                <div class="formField" 
+                        style="-ms-grid-row: 2; -ms-grid-column: 1; -ms-grid-column-span: 3;">
+
+                    <label for="projectDescription">Description</label><br />
+                    <textarea id="projectDescription" data-win-bind="value: description"></textarea>
+                </div>
+
+                <div class="formField" style="-ms-grid-row: 3; -ms-grid-column: 1;">
+                    <label for="startDate">Start Date</label><br />
+                    <div id="startDate" 
+                        data-win-control="WinJS.UI.DatePicker" 
+                        data-win-bind="winControl.current: startDate"></div>
+                </div>
+                <div class="formField" style="-ms-grid-row: 3; -ms-grid-column: 3;">
+                    <label for="dueDate">Due Date</label><br />
+                    <div id="dueDate" 
+                        data-win-control="WinJS.UI.DatePicker" 
+                        data-win-bind="winControl.current: dueDate"></div>
+                </div>
+                <div class="formField required" style="-ms-grid-row: 4; -ms-grid-column: 1;">
+                    <label for="clientName">Client Name</label><br />
+                    <input type="text" id="clientName" 
+                        maxlength="50" list="clientList" 
+                        data-win-bind="value: clientName">
+                    <datalist id="clientList"></datalist>
+                </div>
+                <div class="formField" style="-ms-grid-row: 4; -ms-grid-column: 3;">
+                    <label for="contactName">Contact Name</label><br />
+                    <input type="text" id="contactName" 
+                        maxlength="50" 
+                        data-win-bind="value: contactName">
+                </div>
+                <div class="formField" 
+                        style="-ms-grid-row: 5; -ms-grid-column: 1; -ms-grid-column-span: 3;">
+                    
+                    <label for="address1">Address</label><br />
+                    <input type="text" id="address1" 
+                        maxlength="60" 
+                        placeholder="Line 1 (e.g., 1234 Maple St.)" 
+                        data-win-bind="value: address1"><br />
+                    <input type="text" id="address2" 
+                        maxlength="60" 
+                        placeholder="Line 2 (e.g., Suite A)" 
+                        data-win-bind="value: address2"><br />
+                    <input type="text" id="city" 
+                        maxlength="35" 
+                        placeholder="City" 
+                        data-win-bind="value: city">
+                    <input type="text" id="region" 
+                        maxlength="25" 
+                        placeholder="State/Region" 
+                        data-win-bind="value: region">
+                    <input type="text" id="postalCode" 
+                        maxlength="12" 
+                        placeholder="Postal Code" 
+                        data-win-bind="value: postalCode">
+                </div>
+                <div class="formField" style="-ms-grid-row: 6; -ms-grid-column: 1;">
+                    <label for="contactEmail">Email</label><br />
+                    <input type="email" id="contactEmail" 
+                        maxlength="75" 
+                        data-win-bind="value: email">
+                </div>
+                <div class="formField" style="-ms-grid-row: 6; -ms-grid-column: 3;">
+                    <label for="phone">Phone</label><br />
+                    <input type="tel" id="phone" 
+                        maxlength="25" 
+                        data-win-bind="value: phone">
+                </div>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

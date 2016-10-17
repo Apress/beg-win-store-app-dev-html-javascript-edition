@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>directions</title>
+
+    <!-- WinJS references -->
+    <link href="//Microsoft.WinJS.1.0/css/ui-dark.css" rel="stylesheet" />
+    <script src="//Microsoft.WinJS.1.0/js/base.js"></script>
+    <script src="//Microsoft.WinJS.1.0/js/ui.js"></script>
+
+    <link href="directions.css" rel="stylesheet" />
+    <script src="directions.js"></script>
+</head>
+<body>
+    <div class="directions fragment">
+        <header aria-label="Header content" role="banner">
+            <button class="win-backbutton" aria-label="Back" disabled type="button"></button>
+            <h1 class="titlearea win-type-ellipsis">
+                <span class="pagetitle">Directions</span>
+            </h1>
+        </header>
+        <section aria-label="Main content" role="main">
+
+            <div id="directionsTemplate" data-win-control="WinJS.Binding.Template" style="display: none">
+                <div class="directionsItem">
+                    <div class="directionsItem-instruction">
+                        <h3 class="directionsItem-instructionText" 
+                            data-win-bind="textContent: instructionText"></h3>
+                    </div>
+                    <div class="directionsItem-distance">
+                        <h2 class="directionsItem-formattedDistance" 
+                            data-win-bind="textContent: travelDistance 
+                                Clok.Data.TravelDistanceConverter"></h2>
+                    </div>
+                </div>
+            </div>
+
+            <div id="directionsContainer">
+                <div id="locationsPane">
+                    <h2>Get Directions</h2>
+                    <div class="formField">
+                        <label for="fromLocation">From</label><br />
+                        <input id="fromLocation">
+                    </div>
+                    <div class="formField">
+                        <label for="toLocation">To</label><br />
+                        <span id="toLocation"></span>
+                    </div>
+                    <button id="getDirectionsButton">Get Directions</button>
+                </div>
+                <div id="directionsPane">
+                    <div id="directionsSuccess" class="hidden">
+
+                        <div id="totalDistance">
+                            Total distance: 
+                            <span 
+                                data-win-bind="textContent: travelDistance 
+                                    Clok.Data.TravelDistanceConverter"></span>
+                        </div>
+                        <div id="totalTime">
+                            Est. travel time: 
+                            <span 
+                                data-win-bind="textContent: travelDuration 
+                                    Clok.Data.TravelTimeConverter"></span>
+                        </div>
+
+                        <div
+                            id="directionsListView"
+                            class="itemlist win-selectionstylefilled"
+                            data-win-control="WinJS.UI.ListView"
+                            data-win-options="{ 
+                                layout: {type: WinJS.UI.ListLayout},
+                                itemTemplate: select('#directionsTemplate'),
+                                selectionMode: 'none', 
+                                swipeBehavior: 'none', 
+                                tapBehavior: 'none' 
+                            }">
+                        </div>
+
+                        <div data-win-bind="textContent: copyright"></div>
+
+                    </div>
+                    <div id="directionsError" class="hidden">
+                        Could not get directions. Please check your 
+                        addresses and internet connection.
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
+
